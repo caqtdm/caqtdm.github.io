@@ -2,9 +2,10 @@
 By courtesy of Zai Wang from the [Australian Synchrotron](http://synchrotron.org.au)
 
 
-|Graphics|Graphics|Graphics|Description|
+## Graphics
+
+|MEDM|EDM|CaQtDM|Description|
 |---|---|---|---|
-|MEDM widget (from Doc)|EDM widget (from Doc)|CaQtDM| |
 |Line| |caGraphics| |
 |Rectangle|Rectangle|caGraphics| |
 |Oval|Circle|caGraphics| |
@@ -14,26 +15,32 @@ By courtesy of Zai Wang from the [Australian Synchrotron](http://synchrotron.org
 | |GIF Image|caImage| |
 | |PNG Image|caImage| |
 | |HTML|? Qt understands html text| |
-| |Dynamic Symbols|? caImage| |
+| |Dynamic Symbols|caImage| |
 |Polygon| |caPolyLine| |
 |Polyline|Lines|caPolyLine| |
-| | | | |
-|Monitors|Monitors|Monitors| |
-|MEDM widget (from Doc)|EDM widget (from Doc)|CaQtDM| |
+
+
+## Monitors
+
+|MEDM|EDM|CaQtDM|Description|
+|---|---|---|---|
 |Meter Monitor|Meter|caCircularGauge| |
 |Bar|Bar|caThermo| |
 |Text|Text Monitor|caLineEdit| |
 |Byte Monitor| |caByte| |
-| |Byte|?| |
+| |Byte| | |
 |Cartesian Plot| |caCartesianPlot| |
 |Strip Chart| |caStripPlot| |
 | |X-Y Graph|caCartesianPlot or caStripPlot| |
-| |Message Box|?| |
-| |Symbols|caImage?| |
+| |Message Box| | |
+| |Symbols|caImage| |
 |Scale Monitor| |caThermo| |
-| | | | |
-|Controls|Controls|Controls|Description|
-|MEDM widget (from Doc)|EDM widget (from Doc)|CaQtDM| |
+
+
+## Controls
+
+|MEDM|EDM|CaQtDM|Description|
+|---|---|---|---|
 |Entry Text|Text|caTextEntry| |
 |Slider|Slider|caSlider| |
 |Menu|Menu Button|caMenu| |
@@ -41,12 +48,12 @@ By courtesy of Zai Wang from the [Australian Synchrotron](http://synchrotron.org
 |Message Button|Message Button|caMessageButton| |
 |Related Display|Related Display|caRelatedDisplay| |
 |Shell Command|Shell Command|caShellCommand| |
-| |Menu Mux (multiplexor)|?| |
-| |Multiplexor|?| |
-| |Button|?| |
+| |Menu Mux (multiplexor)| | |
+| |Multiplexor| | |
+| |Button| | |
 | |Motif Slider|caSlider| |
-| |Up/Down Button|?| |
-| |Exit Button|?| |
+| |Up/Down Button| | |
+| |Exit Button| | |
 | |Radio Box|caChoice| |
 |Wheel Switch| |caNumeric| |
 |Composite| |Use caFrame and caInclude| |
