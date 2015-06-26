@@ -14,7 +14,7 @@ By courtesy of Zai Wang from the [Australian Synchrotron](http://synchrotron.org
 |Image| |caImage| |
 | |GIF Image|caImage| |
 | |PNG Image|caImage| |
-| |HTML|? Qt understands html text| |
+| |HTML|Qt understands html text| |
 | |Dynamic Symbols|caImage| |
 |Polygon| |caPolyLine| |
 |Polyline|Lines|caPolyLine| |
