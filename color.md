@@ -1,6 +1,8 @@
 # Color Table 
 
-| name    | R   | G   | B   | Hex     |
+Standard colors for caqtdm:
+
+| Name    | R   | G   | B   | Hex     |
 |---------|-----|-----|-----|---------|
 | yellow  | 253 | 206 | 55  | #fdce37 |
 | orange  | 239 | 159 | 34  | #ef9f22 |
