@@ -266,20 +266,19 @@ document.write(`
 <span id="document-caQtDM_Manual"></span><section id="caqtdm-manual">
 <h2>caQtDM Manual<a class="headerlink" href="#caqtdm-manual" title="Permalink to this heading">#</a></h2>
 <div class="line-block">
-<div class="line"><strong>Anton Mezger</strong></div>
-<div class="line"><strong>February 2014</strong></div>
+<div class="line"><strong>Anton Mezger/Helge Brands</strong></div>
+<div class="line"><strong>November 2023</strong></div>
 <div class="line">Paul Scherrer Institute</div>
 <div class="line">CH-5232 Villigen</div>
 <div class="line">Switzerland</div>
 </div>
 <section id="about-this-manual">
 <h3>About this manual<a class="headerlink" href="#about-this-manual" title="Permalink to this heading">#</a></h3>
-<p>This manual has been written in HTML and after conversion introduced in
-the Qt assistant in order to get help for the caQtDM system. It has to
+<p>This manual has been written in Sphinx Ret. It has to
 be noted that caQtDM is though as a replacement of the very known EPICS <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
 Display Manager MEDM <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, therefore this manual is of course also inspired
 of the existing MEDM manual.</p>
-<p>The HTML was converted to restructured text using pandoc, then hand-edited.</p>
+<p>The HTML was converted to restructured text using spinx.</p>
 <aside class="footnote brackets" id="id3" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>EPICS: <a class="reference external" href="https://epics.anl.gov">https://epics.anl.gov</a></p>
@@ -361,10 +360,10 @@ necessary directories and files. In the upper directory you will find
 the necessary procedures to build the package, run it locally without
 installing, and also an installation procedure.</p>
 <ol class="arabic simple">
-<li><p>you will have to install Qt-4.8 and qwt-6 when they are not already
-installed. On modern systems Qt4 should already be installed, but the
-qt4-designer not necessarily and you should install it (eventually
-with sudo apt-get install qt4-designer). qwt is normally not
+<li><p>you will have to install Qt and qwt when they are not already
+installed. On modern systems Qt should already be installed, but the
+qt-designer not necessarily and you should install it (eventually
+with sudo apt-get install qt*-designer). qwt is normally not
 installed and you should install this too.</p></li>
 <li><p>you will have to install EPICS (base)</p></li>
 <li><p>all the environment variables used for the installation will be
@@ -386,7 +385,7 @@ installed in the EPICS extensions and the environment variables are
 pointing to them.</p></li>
 <li><p>running <code class="docutils literal notranslate"><span class="pre">caQtDM</span></code>: when the package has been successfully build into the
 directory <code class="docutils literal notranslate"><span class="pre">./caQtDM_Binaries</span></code>, you can start <code class="docutils literal notranslate"><span class="pre">caQtDM</span></code> by using the script
-<code class="docutils literal notranslate"><span class="pre">startDM_Local</span></code> and the qt4-designer by the script <code class="docutils literal notranslate"><span class="pre">qtdesigner</span></code> (all
+<code class="docutils literal notranslate"><span class="pre">startDM_Local</span></code> and the qt-designer by the script <code class="docutils literal notranslate"><span class="pre">qtdesigner</span></code> (all
 located in the main directory where you expanded the tar file). These
 scripts will set some important environment variables in order to set
 the path, the plugin_path and to point to the test directory provided
@@ -399,12 +398,12 @@ the test directory.</p></li>
 <li><p>in case you have qwt 6.1 or greater you will have to use in
 caQtDM_QtControls/src the files qwt_thermo_marker_61.
 (<em>instead of qwt_thermo_marker</em>)</p></li>
-<li><p>in case you already use Qt5.1 with qwt6.1 the building should also be
+<li><p>in case you already use Qt5 or Qt6 with qwt6.2 the building should also be
 straight forward.</p></li>
-<li><p>Instructions for compiling caQtDM on Windows Requirements:</p></li>
+<li><p>Instructions for compiling caQtDM on Windows/Linux/Mac Requirements:</p></li>
 </ol>
 <dl>
-<dt>Minimum:</dt><dd><ul class="simple">
+<dt>Min:</dt><dd><ul class="simple">
 <li><p>Qt 4.8.5</p></li>
 <li><p>Qwt 6.0.1</p></li>
 <li><p>EPICS 3.14.12</p></li>
@@ -412,7 +411,7 @@ straight forward.</p></li>
 <li><p>Wix 3.0</p></li>
 </ul>
 </dd>
-<dt>Minimum:</dt><dd><ul class="simple">
+<dt>Max:</dt><dd><ul class="simple">
 <li><p>Qt 6.5.2</p></li>
 <li><p>Qwt 6.2.0</p></li>
 <li><p>EPICS 7.0.7</p></li>
@@ -428,6 +427,216 @@ This will generate a MSI installation file in the folder of
 <p>To clean the Folder you should use <code class="docutils literal notranslate"><span class="pre">caQtDM_CleanAll.bat</span></code>.</p>
 </dd>
 </dl>
+</section>
+<section id="example-build-settings-for-debian-12">
+<h3>Example build settings for Debian 12<a class="headerlink" href="#example-build-settings-for-debian-12" title="Permalink to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id45">
+<div class="code-block-caption"><span class="caption-text">installation</span><a class="headerlink" href="#id45" title="Permalink to this code">#</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> apt install git
+ apt install qtcreator
+ apt install gcc
+ apt install g++
+ apt install qwt
+ apt install qwt-qt6
+ apt install qwt-qt5
+ apt install libqwt
+ apt install libqwt-qt5-dev
+ apt install qmake
+ apt install qt5-dev
+ apt install qt6
+ apt install qt5-qmake
+ apt install qt5-default
+ apt install qtbase5-dev
+ apt install qt5designer
+ apt install qt5-designer
+ apt install qttools5-dev-tools
+ apt install qtsvg5-examples
+ apt install qttools5-dev
+ apt install qtsystems5-dev
+ apt install libqt5svg5-dev
+ apt install libzip-dev
+ apt install python3-dev
+ apt install libqt5x11extras5-dev
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id46">
+<div class="code-block-caption"><span class="caption-text">configuration</span><a class="headerlink" href="#id46" title="Permalink to this code">#</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       #!/bin/bash
+       if [ -z &quot;$QTHOME&quot; ];                then export   QTHOME=/usr;
+       fi
+       if [ -z &quot;$QWTHOME&quot; ];               then export   QWTHOME=/usr;
+       fi
+       if [ -z &quot;$QWTINCLUDE&quot; ];            then export   QWTINCLUDE=/usr/include/qwt;
+       fi
+       if [ -z &quot;$QWTLIB&quot; ];                then export   QWTLIB=/usr/lib;
+       fi
+       if [ -z &quot;$QWTVERSION&quot; ];            then export   QWTVERSION=6.1;
+       fi
+       # on unix library can be libqwt or libqwt-qt5 or ...
+       if [ -z &quot;$QWTLIBNAME&quot; ];            then export   QWTLIBNAME=qwt-qt5;
+       fi
+       if [ -z &quot;$EPICS_BASE&quot; ];            then export   EPICS_BASE=/home/helge/epics-base;
+       fi
+       if [ -z &quot;$EPICSINCLUDE&quot; ];          then export   EPICSINCLUDE=${EPICS_BASE}/include;
+       fi
+       if [ -z &quot;$EPICSLIB&quot; ];              then  export  EPICSLIB=${EPICS_BASE}/lib/$EPICS_HOST_ARCH;
+       fi
+       if [ -z &quot;$EPICS4LOCATION&quot; ];         then  export  EPICS4LOCATION=/home/mezger/EPICS-CPP-4.6.0/
+       fi
+       if [ -z &quot;$EPICSEXTENSIONS&quot; ];     then  export  EPICSEXTENSIONS=/usr/local/epics/extensions;
+       fi
+       if [ -z &quot;$QTCONTROLS_LIBS&quot; ];       then export  QTCONTROLS_LIBS=`pwd`/caQtDM_Binaries;
+       fi
+       if [ -z &quot;$CAQTDM_COLLECT&quot; ];       then export  CAQTDM_COLLECT=`pwd`/caQtDM_Binaries;
+       fi
+       export  QTBASE=${QTCONTROLS_LIBS};
+
+       if [ -z &quot;$CAQTDM_CA_ARCHIVELIBS&quot; ];       then export  CAQTDM_CA_ARCHIVELIBS=`pwd`/caQtDM_Binaries;
+       fi
+       if [ -z &quot;$CAQTDM_LOGGING_ARCHIVELIBS&quot; ];       then export  CAQTDM_LOGGING_ARCHIVELIBS=`pwd`/caQtDM_Binaries;
+       fi
+
+       if [ -z &quot;$QTDM_LIBINSTALL&quot; ];  then  export  QTDM_LIBINSTALL=$EPICSEXTENSIONS/lib/$EPICS_HOST_ARCH;
+       fi
+       if [ -z &quot;$QTDM_BININSTALL&quot; ];   then  export  QTDM_BININSTALL=$EPICSEXTENSIONS/bin/$EPICS_HOST_ARCH;
+       fi
+
+       if [ -z &quot;$PYTHONVERSION&quot; ];   then  export  PYTHONVERSION=3.11;
+       fi
+       if [ -z &quot;$PYTHONINCLUDE&quot; ];   then  export  PYTHONINCLUDE=/usr/include/python$PYTHONVERSION;
+       fi
+       if [ -z &quot;$PYTHONLIB&quot; ];   then  export  PYTHONLIB=/usr/lib/;
+       fi
+
+       if [ -z &quot;$ZMQ&quot; ];   then  export  ZMQ=/usr/local;
+       fi
+       if [ -z &quot;$ZMQINC&quot; ];   then  export  ZMQINC=$ZMQ/include;
+       fi
+       if [ -z &quot;$ZMQLIB&quot; ];   then  export  ZMQLIB=$ZMQ/lib;
+       fi
+
+
+
+       if [ -z &quot;$TROLLTECH&quot; ]; then
+         echo
+         echo ====== do not use psi trolltech directories
+         echo
+         if [ -z &quot;$QTDM_RPATH&quot; ];   then export  QTDM_RPATH=${QTDM_LIBINSTALL}:${QTBASE};
+         fi
+       else
+         echo
+         echo ====== use psi trolltech directories
+         echo
+         if [ -z &quot;$QTDM_RPATH&quot; ];   then export  QTDM_RPATH=${QTDM_LIBINSTALL}:$TROLLTECH/binQt;
+         fi
+       fi
+
+      if [ -z &quot;$QTDM_RPATH&quot; ];   then export  QTDM_RPATH=${QTDM_LIBINSTALL}:$TROLLTECH/binQt:${QTBASE};
+      fi
+</pre></div>
+</div>
+</div>
+</section>
+<section id="example-build-settings-for-rocky-linux-9">
+<h3>Example build settings for Rocky Linux 9<a class="headerlink" href="#example-build-settings-for-rocky-linux-9" title="Permalink to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id47">
+<div class="code-block-caption"><span class="caption-text">installation</span><a class="headerlink" href="#id47" title="Permalink to this code">#</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    dnf -y install epel-release
+    dnf install qt-creator
+    dnf install readline-devel
+    dnf install perl
+    dnf install qwt-qt5-devel
+    dnf install qt5-qttools-devel
+    dnf install qt5-qtx11extras
+    dnf install qt5-qttools-static
+    dnf install libzip-devel
+    dnf install zlib-devel
+    dnf install python3-devel
+    dnf install libXext-devel
+</pre></div>
+</div>
+</div>
+<p>Please change the qmake call in ./caQtDM_BuildAll to qmake-qt5
+.. code-block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>:caption: configuration
+
+       #!/bin/bash
+       if [ -z &quot;$QTHOME&quot; ];                then export   QTHOME=/usr;
+       fi
+       if [ -z &quot;$QWTHOME&quot; ];               then export   QWTHOME=/usr;
+       fi
+       if [ -z &quot;$QWTINCLUDE&quot; ];            then export   QWTINCLUDE=/usr/include/qt5/qwt;
+       fi
+       if [ -z &quot;$QWTLIB&quot; ];                then export   QWTLIB=${QWTHOME}/lib;
+       fi
+       if [ -z &quot;$QWTVERSION&quot; ];            then export   QWTVERSION=6.1;
+       fi
+       # on unix library can be libqwt or libqwt-qt5 or ...
+       if [ -z &quot;$QWTLIBNAME&quot; ];            then export   QWTLIBNAME=qwt-qt5;
+       fi
+       if [ -z &quot;$EPICS_HOST_ARCH&quot; ];       then export   EPICS_HOST_ARCH=linux-x86_64;
+       fi
+       if [ -z &quot;$EPICS_BASE&quot; ];            then export   EPICS_BASE=/home/helge/base-7.0.7;
+       fi
+       if [ -z &quot;$EPICSINCLUDE&quot; ];          then export   EPICSINCLUDE=${EPICS_BASE}/include;
+       fi
+       if [ -z &quot;$EPICSLIB&quot; ];              then  export  EPICSLIB=${EPICS_BASE}/lib/$EPICS_HOST_ARCH;
+       fi
+       if [ -z &quot;$EPICS4LOCATION&quot; ];         then  export  EPICS4LOCATION=/home/mezger/EPICS-CPP-4.6.0/
+       fi
+       if [ -z &quot;$EPICSEXTENSIONS&quot; ];     then  export  EPICSEXTENSIONS=/usr/local/epics/extensions;
+       fi
+       if [ -z &quot;$QTCONTROLS_LIBS&quot; ];       then export  QTCONTROLS_LIBS=`pwd`/caQtDM_Binaries;
+       fi
+       if [ -z &quot;$CAQTDM_COLLECT&quot; ];       then export  CAQTDM_COLLECT=`pwd`/caQtDM_Binaries;
+       fi
+       export  QTBASE=${QTCONTROLS_LIBS};
+
+       if [ -z &quot;$CAQTDM_CA_ARCHIVELIBS&quot; ];       then export  CAQTDM_CA_ARCHIVELIBS=`pwd`/caQtDM_Binaries;
+       fi
+       if [ -z &quot;$CAQTDM_LOGGING_ARCHIVELIBS&quot; ];       then export  CAQTDM_LOGGING_ARCHIVELIBS=`pwd`/caQtDM_Binaries;
+       fi
+
+       if [ -z &quot;$QTDM_LIBINSTALL&quot; ];  then  export  QTDM_LIBINSTALL=$EPICSEXTENSIONS/lib/$EPICS_HOST_ARCH;
+       fi
+       if [ -z &quot;$QTDM_BININSTALL&quot; ];   then  export  QTDM_BININSTALL=$EPICSEXTENSIONS/bin/$EPICS_HOST_ARCH;
+       fi
+
+       if [ -z &quot;$PYTHONVERSION&quot; ];   then  export  PYTHONVERSION=3.9;
+       fi
+       if [ -z &quot;$PYTHONINCLUDE&quot; ];   then  export  PYTHONINCLUDE=/usr/include/python$PYTHONVERSION;
+       fi
+       if [ -z &quot;$PYTHONLIB&quot; ];   then  export  PYTHONLIB=/usr/lib/;
+       fi
+
+       if [ -z &quot;$ZMQ&quot; ];   then  export  ZMQ=/usr/local;
+       fi
+       if [ -z &quot;$ZMQINC&quot; ];   then  export  ZMQINC=$ZMQ/include;
+       fi
+       if [ -z &quot;$ZMQLIB&quot; ];   then  export  ZMQLIB=$ZMQ/lib;
+       fi
+
+
+
+       if [ -z &quot;$TROLLTECH&quot; ]; then
+         echo
+         echo ====== do not use psi trolltech directories
+         echo
+         if [ -z &quot;$QTDM_RPATH&quot; ];   then export  QTDM_RPATH=${QTDM_LIBINSTALL}:${QTBASE};
+         fi
+       else
+         echo
+         echo ====== use psi trolltech directories
+         echo
+         if [ -z &quot;$QTDM_RPATH&quot; ];   then export  QTDM_RPATH=${QTDM_LIBINSTALL}:$TROLLTECH/binQt;
+         fi
+       fi
+
+      if [ -z &quot;$QTDM_RPATH&quot; ];   then export  QTDM_RPATH=${QTDM_LIBINSTALL}:$TROLLTECH/binQt:${QTBASE};
+      fi
+</pre></div>
+</div>
 </section>
 <section id="development-history">
 <h3>Development history<a class="headerlink" href="#development-history" title="Permalink to this heading">#</a></h3>
@@ -1166,8 +1375,8 @@ caQtDM path. The <code class="docutils literal notranslate"><span class="pre">ad
 integrate these defaults into the generated <code class="docutils literal notranslate"><span class="pre">.ui</span></code> file. You may delete
 this stylesheet or change it to your convenience. However as mentioned
 before, many styles will be overwritten.</p>
-<table class="table" id="id45">
-<caption><span class="caption-text">Overview of the caQtDM Custom Widgets</span><a class="headerlink" href="#id45" title="Permalink to this table">#</a></caption>
+<table class="table" id="id48">
+<caption><span class="caption-text">Overview of the caQtDM Custom Widgets</span><a class="headerlink" href="#id48" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Graphics</p></th>
 <th class="head"><p>Monitors</p></th>
@@ -2932,6 +3141,8 @@ the format.</p></td>
 <li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#introduction">Introduction</a></li>
 <li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#qt-designer-editor">Qt Designer: editor</a></li>
 <li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#install">Install</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#example-build-settings-for-debian-12">Example build settings for Debian 12</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#example-build-settings-for-rocky-linux-9">Example build settings for Rocky Linux 9</a></li>
 <li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#development-history">Development history</a></li>
 <li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caqtdm-custom-widgets">caQtDM Custom Widgets</a></li>
 <li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#all-monitor-objects">all monitor objects</a><ul class="nav section-nav flex-column">
