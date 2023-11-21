@@ -914,7 +914,7 @@ the used version has been solved.</p>
 </div>
 <ul class="simple">
 <li><p>new options on command line available for caQtDM: -cs for specifiying default plugin to be used, -options for passing options (key, value pairs) to plugins</p></li>
-<li><p>use now the QStringlList editor in Designer for semicolumn separated strings</p></li>
+<li><p>use now the QStringlList editor in Designer for semicolon separated strings</p></li>
 <li><p>mobile handling of config files slightly modified</p></li>
 <li><p>adjustment of fonts for android modified / apply button of caapplynumeric is now resizable</p></li>
 <li><p>resizing was perturbed by a resize forced by incoming channel data.</p></li>
@@ -953,7 +953,7 @@ the used version has been solved.</p>
 <li><p>edl2ui enhanced (by Lucas Carvalho)</p></li>
 <li><p>several warnings (mainly on mac osx) solved</p></li>
 <li><p>capolyline was not resizing correctly, this has been now corrected</p></li>
-<li><p>a string containing a semicolumn was only displayed up to the semicolumn, this is corrected now.</p></li>
+<li><p>a string containing a semicolon was only displayed up to the semicolumn, this is corrected now.</p></li>
 <li><p>cacamera and cascan2d got display of selected values and readback values with different representations and may therefore write values to the CS</p></li>
 <li><p>soft variable bug corrected (was not always found when writing)</p></li>
 <li><p>catextentry got input dialogs (filedialog in case of strings, otherwise simple dialog)</p></li>
@@ -1585,7 +1585,7 @@ format</p></td>
 <hr class="docutils" />
 </section>
 <section id="cathermo">
-<span id="id10"></span><h4>caThermo<a class="headerlink" href="#cathermo" title="Permalink to this heading">#</a></h4>
+<span id="id10"></span><h4><code class="docutils literal notranslate"><span class="pre">caThermo</span></code><a class="headerlink" href="#cathermo" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Bar Monitor in MEDM.</p>
 <blockquote>
 <div><div class="line-block">
@@ -1652,7 +1652,7 @@ LOPR for EPICS)</p></td>
 <hr class="docutils" />
 </section>
 <section id="caled">
-<span id="id11"></span><h4>caLed<a class="headerlink" href="#caled" title="Permalink to this heading">#</a></h4>
+<span id="id11"></span><h4><code class="docutils literal notranslate"><span class="pre">caLed</span></code><a class="headerlink" href="#caled" title="Permalink to this heading">#</a></h4>
 <p>has no equivalent in MEDM.</p>
 <blockquote>
 <div><div class="line-block">
@@ -1687,7 +1687,7 @@ background and foreground, but with alarm handling</p></td>
 <hr class="docutils" />
 </section>
 <section id="calineargauge">
-<span id="id12"></span><h4>caLinearGauge<a class="headerlink" href="#calineargauge" title="Permalink to this heading">#</a></h4>
+<span id="id12"></span><h4><code class="docutils literal notranslate"><span class="pre">caLinearGauge</span></code><a class="headerlink" href="#calineargauge" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Bar Monitor in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -1696,7 +1696,7 @@ background and foreground, but with alarm handling</p></td>
 <hr class="docutils" />
 </section>
 <section id="cacirculargauge">
-<span id="id13"></span><h4>caCircularGauge<a class="headerlink" href="#cacirculargauge" title="Permalink to this heading">#</a></h4>
+<span id="id13"></span><h4><code class="docutils literal notranslate"><span class="pre">caCircularGauge</span></code><a class="headerlink" href="#cacirculargauge" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Meter Monitor in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -1705,7 +1705,7 @@ background and foreground, but with alarm handling</p></td>
 <hr class="docutils" />
 </section>
 <section id="cacartesianplot">
-<span id="id14"></span><h4>caCartesianPlot<a class="headerlink" href="#cacartesianplot" title="Permalink to this heading">#</a></h4>
+<span id="id14"></span><h4><code class="docutils literal notranslate"><span class="pre">caCartesianPlot</span></code><a class="headerlink" href="#cacartesianplot" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Cartesian plot in MEDM and will plot up to 6
 curves</p>
 <blockquote>
@@ -1722,9 +1722,9 @@ curves</p>
 </dd>
 <dt><strong>channels_1, channels_2, channels_3, channels_4, channels_5, channels_6</strong></dt><dd><p>QString: these strings represents the control system process
 variables; each channelpair is composed of two channels separated
-by a semicolumn.
+by a semicolon.
 When specifying only one channel, you will have to put a
-semicolumn in fron or at the end of the string in order to specify
+semicolon in fron or at the end of the string in order to specify
 x or y, you will find in the table below how the cartesian plot
 behaves in case of array or scalars or when only one channel is
 specified.</p>
@@ -1899,10 +1899,10 @@ the axis.</p></td>
 <dt><strong>grid:</strong></dt><dd><p>bool: specifies if a grid should be drawn</p>
 </dd>
 <dt><strong>XaxisLimits:</strong></dt><dd><p>QString: minimum value used in case of limitsMode=User; the values
-must be separated by a semicolumn</p>
+must be separated by a semicolon</p>
 </dd>
 <dt><strong>YaxisLimits:</strong></dt><dd><p>QString: minimum value used in case of limitsMode=User; the values
-must be separated by a semicolumn</p>
+must be separated by a semicolon</p>
 </dd>
 </dl>
 <div class="docutils container">
@@ -1925,7 +1925,7 @@ process variable from which to get the x values and another from
 which to get the y values. These process variables can be array
 process variables, such as Waveforms, or they can be scalar
 process variables with only a single value. The variables have to
-be separated by a semicolumn (see above).
+be separated by a semicolon (see above).
 There are eight possible kinds of traces as seen in the following
 table. The traces for a given plot do not all have to be of the
 same kind - they can be mixed. (In the table Nx is the number of
@@ -2075,7 +2075,7 @@ already that perhaps Count must be twice the value described above?</p>
 <hr class="docutils" />
 </section>
 <section id="castripplot">
-<span id="id15"></span><h4>caStripPlot<a class="headerlink" href="#castripplot" title="Permalink to this heading">#</a></h4>
+<span id="id15"></span><h4><code class="docutils literal notranslate"><span class="pre">caStripPlot</span></code><a class="headerlink" href="#castripplot" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the StripChart Monitor in MEDM.</p>
 <blockquote>
 <div><div class="line-block">
@@ -2090,7 +2090,7 @@ already that perhaps Count must be twice the value described above?</p>
 <dt><strong>TitleY</strong></dt><dd><p>QString: Title of the Y-axis</p>
 </dd>
 <dt><strong>channels</strong></dt><dd><p>QString: this string represents the control system process
-variables; the channels have to be separated by a semicolumn.</p>
+variables; the channels have to be separated by a semicolon.</p>
 </dd>
 <dt><strong>units</strong></dt><dd><table class="table">
 <tbody>
@@ -2159,7 +2159,7 @@ on the period value</p></td>
 <dt><strong>XaxisLimitsMax_1 …..7/YaxisLimitsMin_1, …..7:</strong></dt><dd><p>QString: minimum/maximum value used in case of limitsMode=User</p>
 </dd>
 <dt><strong>YaxisLimits:</strong></dt><dd><p>QString: minimum value used in case of limitsMode=User; the values
-must be separated by a semicolumn</p>
+must be separated by a semicolon</p>
 </dd>
 <dt><strong>background:</strong></dt><dd><p>QColor: color used for the background</p>
 </dd>
@@ -2180,7 +2180,7 @@ must be separated by a semicolumn</p>
 <hr class="docutils" />
 </section>
 <section id="cabyte">
-<span id="id16"></span><h4>caByte<a class="headerlink" href="#cabyte" title="Permalink to this heading">#</a></h4>
+<span id="id16"></span><h4><code class="docutils literal notranslate"><span class="pre">caByte</span></code><a class="headerlink" href="#cabyte" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Byte Monitor in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2189,16 +2189,253 @@ must be separated by a semicolumn</p>
 <hr class="docutils" />
 </section>
 <section id="cacamera">
-<span id="id17"></span><h4>caCamera<a class="headerlink" href="#cacamera" title="Permalink to this heading">#</a></h4>
+<span id="id17"></span><h4><code class="docutils literal notranslate"><span class="pre">caCamera</span></code><a class="headerlink" href="#cacamera" title="Permalink to this heading">#</a></h4>
 <p>has no equivalent in MEDM.</p>
 <blockquote>
-<div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
-<strong>Description:</strong></p>
+<div><div class="line-block">
+<div class="line"><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object</div>
+<div class="line"><strong>Description:</strong></div>
+</div>
+<dl>
+<dt><strong>channelData</strong></dt><dd><p>Image data channel. Typically a waveform with the data in different formats comming directly from the hardware.</p>
+</dd>
+<dt><strong>channelWidth</strong></dt><dd><p>channel with the horizontal resolution in pixel</p>
+</dd>
+<dt><strong>channelHeight</strong></dt><dd><p>channel with the vertical resolution in pixel</p>
+</dd>
+<dt><strong>simpleZoomedView</strong></dt><dd><p>boolean to reduce the complexity of the widget to get an image only view</p>
+</dd>
+<dt><strong>Zoom</strong></dt><dd><p>enables/disables the zoom bar on the right site of the widget</p>
+</dd>
+<dt><strong>automaticLevels</strong></dt><dd><p>enables the scan over the image data to define the min and the max value. These values are needed to</p>
+</dd>
+<dt><strong>minLevel</strong></dt><dd><p>define in the widget a static min level. This can be changed during runtime.</p>
+</dd>
+<dt><strong>maxLevel</strong></dt><dd><p>define in the widget a static max level. This can be changed during runtime.</p>
+</dd>
+<dt><strong>colorMode</strong></dt><dd><dl>
+<dt>Enum: how the data should be interpreted</dt><dd><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>Enum value</p></td>
+<td><p>datatype</p></td>
+<td><p>simple description</p></td>
+</tr>
+<tr class="row-even"><td><p>Mono</p></td>
+<td><p>EPICS</p></td>
+<td><p>data of the waveform used to generate the image from data defined in the EPICS data type</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mono12p</p></td>
+<td><p>Binary</p></td>
+<td><p>12 bit packed mono format</p></td>
+</tr>
+<tr class="row-even"><td><p>Mono10p</p></td>
+<td><p>Binary</p></td>
+<td><p>10 bit packed mono format (5 Byte)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mono10Packed</p></td>
+<td><p>Binary</p></td>
+<td><p>10 bit packed mono format (3 Byte)</p></td>
+</tr>
+<tr class="row-even"><td><p>Mono8</p></td>
+<td><p>Binary</p></td>
+<td><p>8 bit mono data</p></td>
+</tr>
+<tr class="row-odd"><td><p>RGB1_CA</p></td>
+<td><p>EPICS</p></td>
+<td><p>3 Layer RGB data pixel by pixel</p></td>
+</tr>
+<tr class="row-even"><td><p>RGB2_CA</p></td>
+<td><p>EPICS</p></td>
+<td><p>3 Layer RGB data line by line</p></td>
+</tr>
+<tr class="row-odd"><td><p>RGB3_CA</p></td>
+<td><p>EPICS</p></td>
+<td><p>3 Layer RGB data image by image</p></td>
+</tr>
+<tr class="row-even"><td><p>BayerRG_8</p></td>
+<td><p>Binary</p></td>
+<td><p>8 bit Bayerpatternformat RGB</p></td>
+</tr>
+<tr class="row-odd"><td><p>BayerGB_8</p></td>
+<td><p>Binary</p></td>
+<td><p>8 bit Bayerpatternformat GBR</p></td>
+</tr>
+<tr class="row-even"><td><p>BayerGR_8</p></td>
+<td><p>Binary</p></td>
+<td><p>8 bit Bayerpatternformat GRB</p></td>
+</tr>
+<tr class="row-odd"><td><p>BayerBG_8</p></td>
+<td><p>Binary</p></td>
+<td><p>8 bit Bayerpatternformat BGR</p></td>
+</tr>
+<tr class="row-even"><td><p>BayerRG_12</p></td>
+<td><p>Binary</p></td>
+<td><p>12 bit Bayerpatternformat RGB</p></td>
+</tr>
+<tr class="row-odd"><td><p>BayerGB_12</p></td>
+<td><p>Binary</p></td>
+<td><p>12 bit Bayerpatternformat GBR</p></td>
+</tr>
+<tr class="row-even"><td><p>BayerGR_12</p></td>
+<td><p>Binary</p></td>
+<td><p>12 bit Bayerpatternformat GRB</p></td>
+</tr>
+<tr class="row-odd"><td><p>BayerBG_12</p></td>
+<td><p>Binary</p></td>
+<td><p>12 bit Bayerpatternformat BGR</p></td>
+</tr>
+<tr class="row-even"><td><p>RGB_8</p></td>
+<td><p>Binary</p></td>
+<td><p>8 bit RGB data</p></td>
+</tr>
+<tr class="row-odd"><td><p>BGR_8</p></td>
+<td><p>Binary</p></td>
+<td><p>8 bit BGR data</p></td>
+</tr>
+<tr class="row-even"><td><p>RGBA_8</p></td>
+<td><p>Binary</p></td>
+<td><p>8 bit RGBA data</p></td>
+</tr>
+<tr class="row-odd"><td><p>BGRA_8</p></td>
+<td><p>Binary</p></td>
+<td><p>8 bit BGRA data</p></td>
+</tr>
+<tr class="row-even"><td><p>YUV444</p></td>
+<td><p>Binary</p></td>
+<td><p>converted data from the colorshift data model to RGB (bit representation see packMode too)</p></td>
+</tr>
+<tr class="row-odd"><td><p>YUV422</p></td>
+<td><p>Binary</p></td>
+<td><p>converted data from the colorshift data model to RGB (bit representation see packMode too)</p></td>
+</tr>
+<tr class="row-even"><td><p>YUV411</p></td>
+<td><p>Binary</p></td>
+<td><p>converted data from the colorshift data model to RGB (bit representation see packMode too)</p></td>
+</tr>
+<tr class="row-odd"><td><p>YUV421</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>not yet supported image format</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt><strong>colorModeOverwriteChannel</strong></dt><dd><p>MISSING</p>
+</dd>
+<dt><strong>packMode</strong></dt><dd><p>MISSING</p>
+</dd>
+<dt><strong>packingModeOverwriteChannel</strong></dt><dd><p>MISSING</p>
+</dd>
+<dt><strong>showComboBoxes</strong></dt><dd><p>enable/disable the visibility for changing the data interpretation from the user side</p>
+</dd>
+<dt><strong>ColorMap</strong></dt><dd><dl>
+<dt>color map used to display experimental data to the 8Bit RGB world of a monitor</dt><dd><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>Maps</p></td>
+<td><p>rough description</p></td>
+</tr>
+<tr class="row-even"><td><p>color_to_mono</p></td>
+<td><p>grayscale images</p></td>
+</tr>
+<tr class="row-odd"><td><p>mono_to_wavelength</p></td>
+<td><p>different colors optimal for detector testing</p></td>
+</tr>
+<tr class="row-even"><td><p>mono_to_hot</p></td>
+<td><p>red and yellow colloring</p></td>
+</tr>
+<tr class="row-odd"><td><p>mono_to_heat</p></td>
+<td><p>thermal representation</p></td>
+</tr>
+<tr class="row-even"><td><p>mono_to_jet</p></td>
+<td><p>optimal for flow data</p></td>
+</tr>
+<tr class="row-odd"><td><p>mono_to_custom</p></td>
+<td><p>user defined color mapping</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt><strong>customColorMap</strong></dt><dd><p>QString: list of color values (value,r,g,b), seperated by a semicolon</p>
+</dd>
+<dt><strong>discreteCustomColorMap</strong></dt><dd><p>MISSING</p>
+</dd>
+<dt><strong>ROI_readChannelsList</strong></dt><dd><p>edit list of 4 channels seperated by a semicolon to draw rectangle into the image</p>
+</dd>
+<dt><strong>ROI_readChannels</strong></dt><dd><p>see the actual ROI_readChannelsList</p>
+</dd>
+<dt><strong>ROI_readmarkerType</strong></dt><dd><dl>
+<dt>define the cursor marker for the selection</dt><dd><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>cursor</p></td>
+<td><p>selection type</p></td>
+</tr>
+<tr class="row-even"><td><p>box</p></td>
+<td><p>simple box</p></td>
+</tr>
+<tr class="row-odd"><td><p>box_crosshairs</p></td>
+<td><p>box with extra lines</p></td>
+</tr>
+<tr class="row-even"><td><p>line</p></td>
+<td><p>line connection</p></td>
+</tr>
+<tr class="row-odd"><td><p>arrow</p></td>
+<td><p>arrow connection</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt><strong>ROI_readType</strong></dt><dd><dl>
+<dt>how the data from the channels are interpreted</dt><dd><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>description</p></td>
+</tr>
+<tr class="row-even"><td><p>none</p></td>
+<td><p>data is ignored</p></td>
+</tr>
+<tr class="row-odd"><td><p>xy_only</p></td>
+<td><p>only the first 2 channels are used for a center</p></td>
+</tr>
+<tr class="row-even"><td><p>xy1_xy2</p></td>
+<td><p>box with 2 coordinates</p></td>
+</tr>
+<tr class="row-odd"><td><p>xyUpleft_xyLowright</p></td>
+<td><p>box with a upper left and lower right version</p></td>
+</tr>
+<tr class="row-even"><td><p>xycenter_width_height</p></td>
+<td><p>box with center coordinats and a size</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt><strong>ROI_writeChannelsList</strong></dt><dd><p>edit list of 4 channels seperated by a semicolon to write rectangle data into channels</p>
+</dd>
+<dt><strong>ROI_writeChannels</strong></dt><dd><p>see the actual ROI_writeChannelsList</p>
+</dd>
+<dt><strong>ROI_writemarkerType</strong></dt><dd><p>MISSING</p>
+</dd>
+<dt><strong>ROI_writeType</strong></dt><dd><p>MISSING</p>
+</dd>
+<dt><strong>channelXaverage</strong></dt><dd><p>waveform channel to display a pixel wise plot into an image for the x-axis</p>
+</dd>
+<dt><strong>channelYaverage</strong></dt><dd><p>waveform channel to display a pixel wise plot into an image for the y-axis</p>
+</dd>
+</dl>
 </div></blockquote>
 <hr class="docutils" />
 </section>
 <section id="cacalc">
-<span id="id18"></span><h4>caCalc<a class="headerlink" href="#cacalc" title="Permalink to this heading">#</a></h4>
+<span id="id18"></span><h4><code class="docutils literal notranslate"><span class="pre">caCalc</span></code><a class="headerlink" href="#cacalc" title="Permalink to this heading">#</a></h4>
 <p>has no equivalent in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2207,7 +2444,7 @@ must be separated by a semicolumn</p>
 <hr class="docutils" />
 </section>
 <section id="cawaterfallplot">
-<span id="id19"></span><h4>caWaterfallPlot<a class="headerlink" href="#cawaterfallplot" title="Permalink to this heading">#</a></h4>
+<span id="id19"></span><h4><code class="docutils literal notranslate"><span class="pre">caWaterfallPlot</span></code><a class="headerlink" href="#cawaterfallplot" title="Permalink to this heading">#</a></h4>
 <p>has no equivalent in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2216,7 +2453,7 @@ must be separated by a semicolumn</p>
 <hr class="docutils" />
 </section>
 <section id="cabitnames">
-<span id="id20"></span><h4>caBitNames<a class="headerlink" href="#cabitnames" title="Permalink to this heading">#</a></h4>
+<span id="id20"></span><h4><code class="docutils literal notranslate"><span class="pre">caBitNames</span></code><a class="headerlink" href="#cabitnames" title="Permalink to this heading">#</a></h4>
 <p>has no equivalent in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2225,7 +2462,7 @@ must be separated by a semicolumn</p>
 <hr class="docutils" />
 </section>
 <section id="catable">
-<span id="id21"></span><h4>caTable<a class="headerlink" href="#catable" title="Permalink to this heading">#</a></h4>
+<span id="id21"></span><h4><code class="docutils literal notranslate"><span class="pre">caTable</span></code><a class="headerlink" href="#catable" title="Permalink to this heading">#</a></h4>
 <p>has no equivalent in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2237,7 +2474,7 @@ must be separated by a semicolumn</p>
 <section id="all-graphical-objects">
 <h3>all graphical objects<a class="headerlink" href="#all-graphical-objects" title="Permalink to this heading">#</a></h3>
 <section id="calabel">
-<span id="id22"></span><h4>caLabel<a class="headerlink" href="#calabel" title="Permalink to this heading">#</a></h4>
+<span id="id22"></span><h4><code class="docutils literal notranslate"><span class="pre">caLabel</span></code><a class="headerlink" href="#calabel" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of Text in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2246,7 +2483,7 @@ must be separated by a semicolumn</p>
 <hr class="docutils" />
 </section>
 <section id="cagraphics">
-<span id="id23"></span><h4>caGraphics<a class="headerlink" href="#cagraphics" title="Permalink to this heading">#</a></h4>
+<span id="id23"></span><h4><code class="docutils literal notranslate"><span class="pre">caGraphics</span></code><a class="headerlink" href="#cagraphics" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of all primary graphical objects (like circles, lines,
 arcs, triangles, arrows, …) in MEDM.</p>
 <blockquote>
@@ -2256,7 +2493,7 @@ arcs, triangles, arrows, …) in MEDM.</p>
 <hr class="docutils" />
 </section>
 <section id="caframe">
-<span id="id24"></span><h4>caFrame<a class="headerlink" href="#caframe" title="Permalink to this heading">#</a></h4>
+<span id="id24"></span><h4><code class="docutils literal notranslate"><span class="pre">caFrame</span></code><a class="headerlink" href="#caframe" title="Permalink to this heading">#</a></h4>
 <p>has no equivalent of Text in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2265,7 +2502,7 @@ arcs, triangles, arrows, …) in MEDM.</p>
 <hr class="docutils" />
 </section>
 <section id="caimage">
-<span id="id25"></span><h4>caImage<a class="headerlink" href="#caimage" title="Permalink to this heading">#</a></h4>
+<span id="id25"></span><h4><code class="docutils literal notranslate"><span class="pre">caImage</span></code><a class="headerlink" href="#caimage" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of image in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2308,7 +2545,7 @@ edit images. For UNIX, the <a class="reference external" href="https://www.gimp.
 <hr class="docutils" />
 </section>
 <section id="capolyline">
-<span id="id26"></span><h4>caPolyLine<a class="headerlink" href="#capolyline" title="Permalink to this heading">#</a></h4>
+<span id="id26"></span><h4><code class="docutils literal notranslate"><span class="pre">caPolyLine</span></code><a class="headerlink" href="#capolyline" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of Polyline and Polygone in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2317,7 +2554,7 @@ edit images. For UNIX, the <a class="reference external" href="https://www.gimp.
 <hr class="docutils" />
 </section>
 <section id="cainclude">
-<span id="id27"></span><h4>caInclude<a class="headerlink" href="#cainclude" title="Permalink to this heading">#</a></h4>
+<span id="id27"></span><h4><code class="docutils literal notranslate"><span class="pre">caInclude</span></code><a class="headerlink" href="#cainclude" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Composite in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2332,7 +2569,7 @@ command line.</p>
 <hr class="docutils" />
 </section>
 <section id="cadoubletabwidget">
-<span id="id28"></span><h4>caDoubleTabWidget<a class="headerlink" href="#cadoubletabwidget" title="Permalink to this heading">#</a></h4>
+<span id="id28"></span><h4><code class="docutils literal notranslate"><span class="pre">caDoubleTabWidget</span></code><a class="headerlink" href="#cadoubletabwidget" title="Permalink to this heading">#</a></h4>
 <p>has no equivalent in MEDM and is not a controls object</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2343,7 +2580,7 @@ command line.</p>
 <section id="all-controller-objects">
 <h3>all controller objects<a class="headerlink" href="#all-controller-objects" title="Permalink to this heading">#</a></h3>
 <section id="canumeric">
-<span id="id29"></span><h4>caNumeric<a class="headerlink" href="#canumeric" title="Permalink to this heading">#</a></h4>
+<span id="id29"></span><h4><code class="docutils literal notranslate"><span class="pre">caNumeric</span></code><a class="headerlink" href="#canumeric" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Wheelswitch in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2364,7 +2601,7 @@ the input. Type Enter to finish the input.</p>
 <hr class="docutils" />
 </section>
 <section id="caapplynumeric">
-<span id="id30"></span><h4>caApplyNumeric<a class="headerlink" href="#caapplynumeric" title="Permalink to this heading">#</a></h4>
+<span id="id30"></span><h4><code class="docutils literal notranslate"><span class="pre">caApplyNumeric</span></code><a class="headerlink" href="#caapplynumeric" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Wheelswitch in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2375,7 +2612,7 @@ value will be applied when pressing the apply button.</p>
 <hr class="docutils" />
 </section>
 <section id="caslider">
-<span id="id31"></span><h4>caSlider<a class="headerlink" href="#caslider" title="Permalink to this heading">#</a></h4>
+<span id="id31"></span><h4><code class="docutils literal notranslate"><span class="pre">caSlider</span></code><a class="headerlink" href="#caslider" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Wheelswitch in MEDM</p>
 <blockquote>
 <div><p>&lt;<a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2384,7 +2621,7 @@ value will be applied when pressing the apply button.</p>
 <hr class="docutils" />
 </section>
 <section id="cashellcommand">
-<span id="id32"></span><h4>caShellCommand<a class="headerlink" href="#cashellcommand" title="Permalink to this heading">#</a></h4>
+<span id="id32"></span><h4><code class="docutils literal notranslate"><span class="pre">caShellCommand</span></code><a class="headerlink" href="#cashellcommand" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Shell command in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2393,7 +2630,7 @@ value will be applied when pressing the apply button.</p>
 <hr class="docutils" />
 </section>
 <section id="camenu">
-<span id="id33"></span><h4>caMenu<a class="headerlink" href="#camenu" title="Permalink to this heading">#</a></h4>
+<span id="id33"></span><h4><code class="docutils literal notranslate"><span class="pre">caMenu</span></code><a class="headerlink" href="#camenu" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Menu in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2402,7 +2639,7 @@ value will be applied when pressing the apply button.</p>
 <hr class="docutils" />
 </section>
 <section id="cachoice">
-<span id="id34"></span><h4>caChoice<a class="headerlink" href="#cachoice" title="Permalink to this heading">#</a></h4>
+<span id="id34"></span><h4><code class="docutils literal notranslate"><span class="pre">caChoice</span></code><a class="headerlink" href="#cachoice" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Choice Button in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2429,7 +2666,7 @@ columns.</p></td>
 <hr class="docutils" />
 </section>
 <section id="carelateddisplay">
-<span id="id35"></span><h4>caRelatedDisplay<a class="headerlink" href="#carelateddisplay" title="Permalink to this heading">#</a></h4>
+<span id="id35"></span><h4><code class="docutils literal notranslate"><span class="pre">caRelatedDisplay</span></code><a class="headerlink" href="#carelateddisplay" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Related Display in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2472,7 +2709,7 @@ in case the user cannot find them.</p></td>
 <hr class="docutils" />
 </section>
 <section id="catextentry">
-<span id="id36"></span><h4>caTextEntry<a class="headerlink" href="#catextentry" title="Permalink to this heading">#</a></h4>
+<span id="id36"></span><h4><code class="docutils literal notranslate"><span class="pre">caTextEntry</span></code><a class="headerlink" href="#catextentry" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Text Entry in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2481,7 +2718,7 @@ in case the user cannot find them.</p></td>
 <hr class="docutils" />
 </section>
 <section id="camessagebutton">
-<span id="id37"></span><h4>caMessageButton<a class="headerlink" href="#camessagebutton" title="Permalink to this heading">#</a></h4>
+<span id="id37"></span><h4><code class="docutils literal notranslate"><span class="pre">caMessageButton</span></code><a class="headerlink" href="#camessagebutton" title="Permalink to this heading">#</a></h4>
 <p>is the equivalent of the Message Button in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2490,7 +2727,7 @@ in case the user cannot find them.</p></td>
 <hr class="docutils" />
 </section>
 <section id="catogglebutton">
-<span id="id38"></span><h4>caToggleButton<a class="headerlink" href="#catogglebutton" title="Permalink to this heading">#</a></h4>
+<span id="id38"></span><h4><code class="docutils literal notranslate"><span class="pre">caToggleButton</span></code><a class="headerlink" href="#catogglebutton" title="Permalink to this heading">#</a></h4>
 <p>has no equivalent in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2499,7 +2736,7 @@ in case the user cannot find them.</p></td>
 <hr class="docutils" />
 </section>
 <section id="cascriptbutton">
-<span id="id39"></span><h4>caScriptButton<a class="headerlink" href="#cascriptbutton" title="Permalink to this heading">#</a></h4>
+<span id="id39"></span><h4><code class="docutils literal notranslate"><span class="pre">caScriptButton</span></code><a class="headerlink" href="#cascriptbutton" title="Permalink to this heading">#</a></h4>
 <p>has no equivalent in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2508,7 +2745,7 @@ in case the user cannot find them.</p></td>
 <hr class="docutils" />
 </section>
 <section id="caspinbox">
-<span id="id40"></span><h4>caSpinBox<a class="headerlink" href="#caspinbox" title="Permalink to this heading">#</a></h4>
+<span id="id40"></span><h4><code class="docutils literal notranslate"><span class="pre">caSpinBox</span></code><a class="headerlink" href="#caspinbox" title="Permalink to this heading">#</a></h4>
 <p>represents a simplified Wheelswitch</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -3147,43 +3384,43 @@ the format.</p></td>
 <li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caqtdm-custom-widgets">caQtDM Custom Widgets</a></li>
 <li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#all-monitor-objects">all monitor objects</a><ul class="nav section-nav flex-column">
 <li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#calineedit-the-most-used-graphical-object-for-data-monitoring"><code class="docutils literal notranslate"><span class="pre">caLineEdit</span></code>, the most used graphical object for data monitoring</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cathermo">caThermo</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caled">caLed</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#calineargauge">caLinearGauge</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacirculargauge">caCircularGauge</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacartesianplot">caCartesianPlot</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#castripplot">caStripPlot</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cabyte">caByte</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacamera">caCamera</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacalc">caCalc</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cawaterfallplot">caWaterfallPlot</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cabitnames">caBitNames</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#catable">caTable</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cathermo"><code class="docutils literal notranslate"><span class="pre">caThermo</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caled"><code class="docutils literal notranslate"><span class="pre">caLed</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#calineargauge"><code class="docutils literal notranslate"><span class="pre">caLinearGauge</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacirculargauge"><code class="docutils literal notranslate"><span class="pre">caCircularGauge</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacartesianplot"><code class="docutils literal notranslate"><span class="pre">caCartesianPlot</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#castripplot"><code class="docutils literal notranslate"><span class="pre">caStripPlot</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cabyte"><code class="docutils literal notranslate"><span class="pre">caByte</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacamera"><code class="docutils literal notranslate"><span class="pre">caCamera</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacalc"><code class="docutils literal notranslate"><span class="pre">caCalc</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cawaterfallplot"><code class="docutils literal notranslate"><span class="pre">caWaterfallPlot</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cabitnames"><code class="docutils literal notranslate"><span class="pre">caBitNames</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#catable"><code class="docutils literal notranslate"><span class="pre">caTable</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#all-graphical-objects">all graphical objects</a><ul class="nav section-nav flex-column">
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#calabel">caLabel</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cagraphics">caGraphics</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caframe">caFrame</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caimage">caImage</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#capolyline">caPolyLine</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cainclude">caInclude</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cadoubletabwidget">caDoubleTabWidget</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#calabel"><code class="docutils literal notranslate"><span class="pre">caLabel</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cagraphics"><code class="docutils literal notranslate"><span class="pre">caGraphics</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caframe"><code class="docutils literal notranslate"><span class="pre">caFrame</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caimage"><code class="docutils literal notranslate"><span class="pre">caImage</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#capolyline"><code class="docutils literal notranslate"><span class="pre">caPolyLine</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cainclude"><code class="docutils literal notranslate"><span class="pre">caInclude</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cadoubletabwidget"><code class="docutils literal notranslate"><span class="pre">caDoubleTabWidget</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#all-controller-objects">all controller objects</a><ul class="nav section-nav flex-column">
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#canumeric">caNumeric</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caapplynumeric">caApplyNumeric</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caslider">caSlider</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cashellcommand">caShellCommand</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#camenu">caMenu</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cachoice">caChoice</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#carelateddisplay">caRelatedDisplay</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#catextentry">caTextEntry</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#camessagebutton">caMessageButton</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#catogglebutton">caToggleButton</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cascriptbutton">caScriptButton</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caspinbox">caSpinBox</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#canumeric"><code class="docutils literal notranslate"><span class="pre">caNumeric</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caapplynumeric"><code class="docutils literal notranslate"><span class="pre">caApplyNumeric</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caslider"><code class="docutils literal notranslate"><span class="pre">caSlider</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cashellcommand"><code class="docutils literal notranslate"><span class="pre">caShellCommand</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#camenu"><code class="docutils literal notranslate"><span class="pre">caMenu</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cachoice"><code class="docutils literal notranslate"><span class="pre">caChoice</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#carelateddisplay"><code class="docutils literal notranslate"><span class="pre">caRelatedDisplay</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#catextentry"><code class="docutils literal notranslate"><span class="pre">caTextEntry</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#camessagebutton"><code class="docutils literal notranslate"><span class="pre">caMessageButton</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#catogglebutton"><code class="docutils literal notranslate"><span class="pre">caToggleButton</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cascriptbutton"><code class="docutils literal notranslate"><span class="pre">caScriptButton</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caspinbox"><code class="docutils literal notranslate"><span class="pre">caSpinBox</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#requirements">Requirements</a></li>
