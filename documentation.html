@@ -2190,12 +2190,23 @@ must be separated by a semicolon</p>
 </section>
 <section id="cacamera">
 <span id="id17"></span><h4><code class="docutils literal notranslate"><span class="pre">caCamera</span></code><a class="headerlink" href="#cacamera" title="Permalink to this heading">#</a></h4>
-<p>has no equivalent in MEDM.</p>
 <blockquote>
 <div><div class="line-block">
-<div class="line"><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object</div>
-<div class="line"><strong>Description:</strong></div>
+<div class="line"><strong>Description:</strong>
+The main idea of the camera widget is to display 2D data in a widget. This can be any data that has the one format that the widget
+can decode. The widget uses EPICS data types, but can use the data as a memory bob and decodes the data in various ways that are common
+for image encoding. Be aware that we can’t implement every way. We tested against two different vendors/color cameras (Basler acA4600-10uc/acA1300-30gc and Prosilica GC1660C)
+to cover most needed conversions.
+Be aware that the conversion matrixes between YUV and RGB are based on the used color room. We are using these functions:</div>
 </div>
+<blockquote>
+<div><div class="math">
+<p><img src="_images/math/016166941c5284576e3ed1e6b38629665dbad292.png" alt="\begin{aligned}
+YUV2R(y,cb,cr) &amp;= \frac{298.082*y}{256} &amp; &amp;+ \frac{408.583 * cr }{256} &amp;- 222.291 \\
+YUV2G(y,cb,cr) &amp;= \frac{298.082*y}{256} &amp;- \frac{100.291 * cb }{256} &amp;- \frac{208.120 * cr  }{256} &amp;+ 135.576 \\
+YUV2B(y,cb,cr) &amp;= \frac{298.082*y}{256} &amp;+ \frac{561.412 * cb }{256} &amp; &amp;- 276.836
+\end{aligned}"/></p>
+</div></div></blockquote>
 <dl>
 <dt><strong>channelData</strong></dt><dd><p>Image data channel. Typically a waveform with the data in different formats comming directly from the hardware.</p>
 </dd>
@@ -2324,11 +2335,28 @@ must be separated by a semicolon</p>
 </dd>
 </dl>
 </dd>
-<dt><strong>colorModeOverwriteChannel</strong></dt><dd><p>MISSING</p>
+<dt><strong>colorModeOverwriteChannel</strong></dt><dd><p>channel to select one of the color modes. The value of the channel has to be a string to let the widget seatch inside it enum list.
+This should be supported by the hardware IOC because this is hardware depended setting. If this is not available enable the combo boxes to do it manual</p>
 </dd>
-<dt><strong>packMode</strong></dt><dd><p>MISSING</p>
+<dt><strong>packMode</strong></dt><dd><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>packNo</p></td>
+<td><p>no modification of the bit representation</p></td>
+</tr>
+<tr class="row-even"><td><p>MSB12Bit</p></td>
+<td><p>for 12 bit color modes set most significant bit</p></td>
+</tr>
+<tr class="row-odd"><td><p>LSB12Bit</p></td>
+<td><p>for 12 bit color modes set least significant bit</p></td>
+</tr>
+<tr class="row-even"><td><p>Reversed</p></td>
+<td><p>for YUV to reverse the decoding to VUY</p></td>
+</tr>
+</tbody>
+</table>
 </dd>
-<dt><strong>packingModeOverwriteChannel</strong></dt><dd><p>MISSING</p>
+<dt><strong>packingModeOverwriteChannel</strong></dt><dd><p>channel to select one of the packing modes. The value of the channel has to be a string to let the widget seatch inside it enum list.
+This should be supported by the hardware IOC because this is hardware depended setting. If this is not available enable the combo boxes to do it manual</p>
 </dd>
 <dt><strong>showComboBoxes</strong></dt><dd><p>enable/disable the visibility for changing the data interpretation from the user side</p>
 </dd>
@@ -2363,7 +2391,7 @@ must be separated by a semicolon</p>
 </dd>
 <dt><strong>customColorMap</strong></dt><dd><p>QString: list of color values (value,r,g,b), seperated by a semicolon</p>
 </dd>
-<dt><strong>discreteCustomColorMap</strong></dt><dd><p>MISSING</p>
+<dt><strong>discreteCustomColorMap</strong></dt><dd><p>QString: list of color values (value,r,g,b), seperated by a semicolon. This map is not smoothed over the value area.</p>
 </dd>
 <dt><strong>ROI_readChannelsList</strong></dt><dd><p>edit list of 4 channels seperated by a semicolon to draw rectangle into the image</p>
 </dd>
@@ -2422,9 +2450,54 @@ must be separated by a semicolon</p>
 </dd>
 <dt><strong>ROI_writeChannels</strong></dt><dd><p>see the actual ROI_writeChannelsList</p>
 </dd>
-<dt><strong>ROI_writemarkerType</strong></dt><dd><p>MISSING</p>
+<dt><strong>ROI_writemarkerType</strong></dt><dd><dl>
+<dt>define the cursor marker for the selection</dt><dd><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>cursor</p></td>
+<td><p>selection type</p></td>
+</tr>
+<tr class="row-even"><td><p>box</p></td>
+<td><p>simple box</p></td>
+</tr>
+<tr class="row-odd"><td><p>box_crosshairs</p></td>
+<td><p>box with extra lines</p></td>
+</tr>
+<tr class="row-even"><td><p>line</p></td>
+<td><p>line connection</p></td>
+</tr>
+<tr class="row-odd"><td><p>arrow</p></td>
+<td><p>arrow connection</p></td>
+</tr>
+</tbody>
+</table>
 </dd>
-<dt><strong>ROI_writeType</strong></dt><dd><p>MISSING</p>
+</dl>
+</dd>
+<dt><strong>ROI_writeType</strong></dt><dd><dl>
+<dt>how the data is written to the channels</dt><dd><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>description</p></td>
+</tr>
+<tr class="row-even"><td><p>none</p></td>
+<td><p>data is ignored</p></td>
+</tr>
+<tr class="row-odd"><td><p>xy_only</p></td>
+<td><p>only the first 2 channels are used for a center</p></td>
+</tr>
+<tr class="row-even"><td><p>xy1_xy2</p></td>
+<td><p>box with 2 coordinates</p></td>
+</tr>
+<tr class="row-odd"><td><p>xyUpleft_xyLowright</p></td>
+<td><p>box with a upper left and lower right version</p></td>
+</tr>
+<tr class="row-even"><td><p>xycenter_width_height</p></td>
+<td><p>box with center coordinats and a size</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
 </dd>
 <dt><strong>channelXaverage</strong></dt><dd><p>waveform channel to display a pixel wise plot into an image for the x-axis</p>
 </dd>
@@ -2436,10 +2509,68 @@ must be separated by a semicolon</p>
 </section>
 <section id="cacalc">
 <span id="id18"></span><h4><code class="docutils literal notranslate"><span class="pre">caCalc</span></code><a class="headerlink" href="#cacalc" title="Permalink to this heading">#</a></h4>
-<p>has no equivalent in MEDM.</p>
 <blockquote>
-<div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
-<strong>Description:</strong></p>
+<div><dl>
+<dt><strong>Description:</strong></dt><dd><p>The idea of caCalc is to have a posibility to do calculations for supporting and optimizing the graphical interface. Thinks like complex visibility and specific data handling/distributions. It is <em>NOT</em> meant for a simple replacement for a real IOC.
+The advantage of caCalc is to open a connection between channel data and data transportation and modification of Qt. This Signal/Slot mechanisem helps to access deeper graphical functionalities, like moving widgets aaround or get control over the main window e.g. remote displays.</p>
+</dd>
+<dt><strong>variable</strong></dt><dd><p>this string generates a process wide variable (softPV) inside caQtDM. This contains the value of the calculation. If this string is empty there will be an automatic name generated, everytime the panels is opened. To guarantee that this name is unique caQtDM is using the UUID generator.</p>
+</dd>
+<dt><strong>variableType</strong></dt><dd><dl>
+<dt>this defines the output type of the softPV. The only decission you can made is sclar or vector.</dt><dd><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>scalar</p></td>
+<td><p>a single double</p></td>
+</tr>
+<tr class="row-even"><td><p>vector</p></td>
+<td><p>an array of doubles</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+<dt><strong>foreground</strong></dt><dd><p>defines the foreground color of the widget</p>
+</dd>
+<dt><strong>background</strong></dt><dd><p>defines the background color of the widget</p>
+</dd>
+<dt><strong>channels</strong></dt><dd><p>if variableType is vector you can add a number of single channels to a list. caCalc is generating a softPV that can be used for plotting</p>
+</dd>
+<dt><strong>channelList</strong></dt><dd><p>visualisation of all channels</p>
+</dd>
+<dt><strong>calc</strong></dt><dd><p>this string represents the calculation that is executed when one of the 4 channels got a monitor. The calculation is exactly the same mechanisem like in the calc or the calcout record in EPICS. There are additional way to use caCalc.</p>
+<ol class="arabic simple">
+<li><p>EPICS calc string</p></li>
+<li><p>%/regexp/ : to use Regular Expressions</p></li>
+<li><p>%QRect : to use Siganl/Slot mechanisem to control positions and size. For this you need to add all 4 channel properties a data source</p></li>
+<li><p>%P/ : to use Python for calculations (extra support is needed during build time, typically only Linux support)</p></li>
+</ol>
+<p>inside the calculation macros can be used.</p>
+</dd>
+<dt><strong>channel</strong></dt><dd><p>data source for <strong>A</strong> can be a channel that gets the data over a plugin or a softPV. The reason for the not name this property not <strong>channelA</strong> is the naming in the origin of EPICS records.</p>
+</dd>
+<dt><strong>channelB</strong></dt><dd><p>datas source for the value <strong>B</strong></p>
+</dd>
+<dt><strong>channelC</strong></dt><dd><p>datas source for the value <strong>C</strong></p>
+</dd>
+<dt><strong>channelD</strong></dt><dd><p>datas source for the value <strong>D</strong></p>
+</dd>
+<dt><strong>initialValue</strong></dt><dd><p>this property initialize the widget with this value enterd here</p>
+</dd>
+<dt><strong>precision</strong></dt><dd><p>the precision gives the accuarcy of the graphical display part of this widget</p>
+</dd>
+<dt><strong>eventsignal</strong></dt><dd><p>if you are using the Signal/Slot mechanissen you must change this property. Otherwise there will be no signals emitted.
+================= ====================
+Never             there will never a signal generated
+onFirstChange     there will be one signal emitted at the first change
+onAnyChange       on every change ther will be signal emitted, this frequency can be sometimes a problem.
+TriggerZeroToOne  there will be only signals when the value before was rounded 0 and now the rounded value is 1
+TriggerOneToZero  there will be only a signal when the value was rounded 1 and is now rounded 0
+================= ====================</p>
+</dd>
+<dt><strong>buddy</strong></dt><dd><p>Qt specific property because of the object characteristic of the caCalc widget</p>
+</dd>
+</dl>
 </div></blockquote>
 <hr class="docutils" />
 </section>
@@ -2800,20 +2931,46 @@ compatible with its options. the following options are supported:</p>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-noMsg</span></code></p></td>
 <td><p>iconize the main window</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-noStyles</span></code></p></td>
-<td><p>no stylesheet will be loaded, works only when not attaching</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-stylefile</span> <span class="pre">filename</span></code></p></td>
+<td><p>will replace the default stylesheet with the specified file (works only when not attaching)</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-print</span></code></p></td>
-<td><p>print file and exit</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-noResize</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-noResize</span></code></p></td>
 <td><p>prevent resizing, works only when not attaching</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-macro</span> <span class="pre">&quot;xxx=aaa,yyy=bbb,</span> <span class="pre">...&quot;</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-macro</span> <span class="pre">&quot;xxx=aaa,yyy=bbb,</span> <span class="pre">...&quot;</span></code></p></td>
 <td><p>apply <a class="reference internal" href="#macro-substitution"><span class="std std-ref">macro substitution</span></a> to replace occurrences of <code class="docutils literal notranslate"><span class="pre">$(xxx)</span></code> with value <code class="docutils literal notranslate"><span class="pre">aaa</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-macrodefs</span> <span class="pre">filename</span></code></p></td>
+<td><p>will load macro definitions from file</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-dg</span> <span class="pre">[xpos[xypos]][+xoffset[+yoffsets]</span></code></p></td>
 <td><p>specifies the geometry (location and size) of the synoptic display</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-httpconfig</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-print</span></code></p></td>
+<td><p>print file and exit</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-savetoimage</span></code></p></td>
+<td><p>will save image file and exit</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-cs</span> <span class="pre">defaultcontrolsystempluginname</span></code></p></td>
+<td><p>will override the default epics3 datasource</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-option</span> <span class="pre">&quot;xxx=aaa,yyy=bbb,</span> <span class="pre">...&quot;</span></code></p></td>
+<td><p>e.g. -option “updatetype=direct” will set the updatetype to Direct
+options for bsread:
+* bsmodulo,bsoffset,
+* bsinconsistency(drop|keep-as-is|adjust-individual|adjust-global),
+* bsmapping(provide-as-is|drop|fill-null)
+* bsstrategy(complete-all|complete-latest)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-url</span> <span class="pre">url</span></code></p></td>
+<td><p>will look for files on the specified url and download them to a local directory</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-emptycache</span></code></p></td>
+<td><p>will empty the local cache used for downloading</p></td>
 </tr>
 </tbody>
 </table>
@@ -3233,7 +3390,7 @@ however this rate can be set on a
 individual base by a JSON string after
 the channel (in designer) with the
 following syntax
-channel{“monitor”:{“maxdisplayrate”:20}},
+channel{“caqtdm_monitor”:{“maxdisplayrate”:20}},
 where you can choose your display rate.</p></td>
 </tr>
 </tbody>
@@ -3313,10 +3470,25 @@ should get a print dialog.</p>
 </section>
 <section id="environment-variables">
 <span id="env-var"></span><h4>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this heading">#</a></h4>
-<p>MEDM uses the following environment variables:</p>
+<p>caQtDM uses the following environment variables:</p>
+<p><strong>form QT and EPICS Library:</strong></p>
 <table class="table">
 <tbody>
-<tr class="row-odd"><td><p>CAQTDM_DISPLAY_PATH</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">QT_PLUGIN_PATH</span></code></p></td>
+<td><p>to find the plugins of qt and others</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">EPICS_CA_ADDR_LIST</span></code></p></td>
+<td><p>see EPICS Documentation</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">EPICS_CA_MAX_ARRAY_BYTES</span></code></p></td>
+<td><p>see EPICS Documentation</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>from caQtDM:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_DISPLAY_PATH</span></code></p></td>
 <td><p>A colon-separated (semi-colon-separated on
 Mircosoft Windows) list of directories in
 which to look for display files. Only looks
@@ -3324,10 +3496,65 @@ in the current working directory if not
 specified. Related Displays have to be in
 your current directory or in this path</p></td>
 </tr>
-<tr class="row-even"><td><p>CAQTDM_EXEC_LIST</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_URL_DISPLAY_PATH</span></code></p></td>
+<td><p>paths to look for ui and stylesheet files
+to download via http</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_EXEC_LIST</span></code></p></td>
 <td><p>A list of commands for the Context Menu . See
 the <a class="reference internal" href="#context-menu-customization"><span class="std std-ref">Context Menu Customization</span></a> for
 the format.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MEDM_EXEC_LIST</span></code></p></td>
+<td><p>for backwards……</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_LAUNCHFILE</span></code></p></td>
+<td><p>Enviroment file for Mobile devices</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_TIMEOUT_HOURS</span></code></p></td>
+<td><p>to exit caQtDM after some amount of time</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_FINDRECORD_DIRECT</span></code></p></td>
+<td><p>override all other find record settings
+(direct json http download)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_FINDRECORD_SRV</span></code></p></td>
+<td><p>for autocompletion, the request URL</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_FINDRECORD_FACILITY</span></code></p></td>
+<td><p>search limitation for a facility</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_FINDRECORD_LIMIT</span></code></p></td>
+<td><p>search limit max number of entries</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_DEFAULT_UNIT_REPLACEMENTS</span></code></p></td>
+<td><p>if set to “false”, default unit replacements
+are disabled.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_CUSTOM_UNIT_REPLACEMENTS</span></code></p></td>
+<td><p>define custom unit replacements. They are
+replaced after default replacements took
+place, if enabled.You can use unicode
+characters or hexadecimal / decimal utf-8
+character codes, seperated by (,) , (=)
+and (;).</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>from plugins:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BSREAD_DISPATCHER</span></code></p></td>
+<td><p>point the bsread plugin to the dispatcher</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BSREAD_ZMQ_CONNECTION_TYPE</span></code></p></td>
+<td><p>control the connection type of the bsread plugin</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BSREAD_ZMQ_ADDR_LIST</span></code></p></td>
+<td><p>point the bsread plugin static sources</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_ARCHIVERSF_URL</span></code></p></td>
+<td><p>point the archiver plugin to a different archiver backend</p></td>
 </tr>
 </tbody>
 </table>
