@@ -1,50 +1,52 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>caQtDM 4.4.1 documentation</title>
+    <title>caQtDM 4.5.0 documentation</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
+    <script src="_static/documentation_options.js?v=95e07352"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'documentation';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -52,23 +54,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+  <div id="pst-scroll-pixel-helper"></div>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -76,7 +71,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -84,21 +78,31 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="#">
+  
   
   
   
@@ -110,26 +114,20 @@
     
   </div>
   
-  
   <div class="col-lg-9 navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
-        <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+        <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="#">
-                        caQtDM Manual
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="#">
+    caQtDM Manual
+  </a>
+</li>
+
   </ul>
 </nav></div>
       
@@ -140,26 +138,22 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script></div>
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
     </div>
     
@@ -167,29 +161,34 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -198,23 +197,21 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          
+          
+            <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="#">
-                        caQtDM Manual
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="#">
+    caQtDM Manual
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -223,15 +220,12 @@ document.write(`
       <div class="sidebar-header-items__end">
         
           <div class="navbar-item">
-<script>
-document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
-  </button>
-`);
-</script></div>
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
       </div>
     
@@ -239,62 +233,77 @@ document.write(`
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article"></div>
+              <div class="bd-header-article d-print-none"></div>
               
               
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="welcome-to-caqtdm-s-documentation">
-<h1>Welcome to caQtDM’s documentation!<a class="headerlink" href="#welcome-to-caqtdm-s-documentation" title="Permalink to this heading">#</a></h1>
+<h1>Welcome to caQtDM’s documentation!<a class="headerlink" href="#welcome-to-caqtdm-s-documentation" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <span id="document-caQtDM_Manual"></span><section id="caqtdm-manual">
-<h2>caQtDM Manual<a class="headerlink" href="#caqtdm-manual" title="Permalink to this heading">#</a></h2>
+<h2>caQtDM Manual<a class="headerlink" href="#caqtdm-manual" title="Link to this heading">#</a></h2>
 <div class="line-block">
 <div class="line"><strong>Anton Mezger/Helge Brands</strong></div>
-<div class="line"><strong>November 2023</strong></div>
+<div class="line"><strong>May 2025</strong></div>
 <div class="line">Paul Scherrer Institute</div>
 <div class="line">CH-5232 Villigen</div>
 <div class="line">Switzerland</div>
 </div>
 <section id="about-this-manual">
-<h3>About this manual<a class="headerlink" href="#about-this-manual" title="Permalink to this heading">#</a></h3>
+<h3>About this manual<a class="headerlink" href="#about-this-manual" title="Link to this heading">#</a></h3>
 <p>This manual has been written in Sphinx Ret. It has to
-be noted that caQtDM is though as a replacement of the very known EPICS <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
+be noted that caQtDM is thought of as a replacement of the well known EPICS <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
 Display Manager MEDM <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, therefore this manual is of course also inspired
-of the existing MEDM manual.</p>
+by the existing MEDM manual.</p>
 <p>The HTML was converted to restructured text using spinx.</p>
-<aside class="footnote brackets" id="id3" role="note">
+<div class="literal-block-wrapper docutils container" id="id45">
+<div class="code-block-caption"><span class="caption-text">building/installing</span><a class="headerlink" href="#id45" title="Link to this code">#</a></div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  pip install sphinx
+  pip install pydata-sphinx-theme
+  make singlehtml
+</pre></div>
+</div>
+</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>EPICS: <a class="reference external" href="https://epics.anl.gov">https://epics.anl.gov</a></p>
 </aside>
-<aside class="footnote brackets" id="id4" role="note">
+<aside class="footnote brackets" id="id4" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>MEDM: <a class="reference external" href="https://epics.anl.gov/extensions/medm">https://epics.anl.gov/extensions/medm</a></p>
 </aside>
+</aside>
 </section>
 <section id="introduction">
-<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h3>
+<h3>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h3>
 <p>caQtDM is a package based on Qt developed at PSI as a successor of
 MEDM, a well known package used in the EPICS community for building
 synoptic displays. The caQtDM package uses the standard Qt GUI (Qt
-designer) for designing synoptic displays, containing all the controls
-graphical elements necessary to visualize and control a facility. Qt
+designer) for designing synoptic displays, containing all the
+graphical control elements necessary to visualize and control a facility. Qt
 designer uses the custom widgets designed for this purpose and writes
 a description file (<code class="docutils literal notranslate"><span class="pre">.ui</span></code> file) that will be used by the synoptic viewer
 caQtDM. A reload function in caQtDM allows to rapidly see the changes
@@ -303,8 +312,8 @@ viewing.</p>
 <p>The heart of the package are the graphical objects (Widgets) plugged
 into the Qt designer. These widgets will be described in detail with
 their properties below. Many objects have been built and more are
-introduced as soon as they are needed. The Qt system allows in a very
-easy way to add continuously new objects or to modify these.</p>
+introduced as soon as they are needed. The Qt system allows
+to continuously add or modify new objects very easily.</p>
 <p>Technically the package consists of three class libraries with the
 graphical objects, a class library used by the viewer or other
 applications and the viewer (caQtDM) itself as well as three libraries
@@ -318,33 +327,34 @@ in-house control system. These are all handled by the viewer. This
 distribution supports epics3 by default. Epics4 can be integrated
 when building it, but only a few tests could be done while not many
 process variables could be tested so far.</p>
-<aside class="footnote brackets" id="id7" role="note">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id7" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">3</a><span class="fn-bracket">]</span></span>
 <p><em>epics3</em> refers to Channel Access protocol</p>
 </aside>
-<aside class="footnote brackets" id="id8" role="note">
+<aside class="footnote brackets" id="id8" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">4</a><span class="fn-bracket">]</span></span>
 <p><em>epics4</em> refers to PV Access protocol, introduced in EPIS release 7</p>
+</aside>
 </aside>
 <p>Part of the package is also a converter (<code class="docutils literal notranslate"><span class="pre">adl2ui</span></code>) that can convert MEDM
 <code class="docutils literal notranslate"><span class="pre">.adl</span></code> files into <code class="docutils literal notranslate"><span class="pre">.ui</span></code> files used by the caQtDM package. In most cases
 this converter gives good results. Besides the already mentioned <code class="docutils literal notranslate"><span class="pre">.ui</span></code>
 files, the viewer can also use in-house developed <code class="docutils literal notranslate"><span class="pre">.prc</span></code> files. These
 last files represent ASCII files to be edited with any text editor
-using are in house syntax.</p>
-<p>The Qt system is widely used today on many platforms and is therefore
+using our in house syntax.</p>
+<p>The Qt system is widely used on many platforms today and is therefore
 an ideal system to develop new applications. The advantage of Qt is
 therefore that an application using this architecture will run on many
-platforms, so that caQtDM will run on linux as well as on windows
-systems.</p>
+platforms, so caQtDM will run on linux as well as on windows systems.</p>
 </section>
 <section id="qt-designer-editor">
-<h3>Qt Designer: editor<a class="headerlink" href="#qt-designer-editor" title="Permalink to this heading">#</a></h3>
+<h3>Qt Designer: editor<a class="headerlink" href="#qt-designer-editor" title="Link to this heading">#</a></h3>
 <p>The designer coming with Qt is the editor used for developing the
 synoptic screens. In this manual we will not describe this editor
-exhaustively, while the editor has it own manual that can be called by
-pressing the F1 key. The editor allows by dragging and dropping the
-graphical objects to be used into the synoptic display. The properties
+exhaustively, as the editor has it own manual that can be called by
+pressing the F1 key. The editor allows for graphical objects to be added
+by dragging and dropping them into the synoptic display. The properties
 of the graphical objects can then be customized in the property editor.
 The most important property is normally the device that is monitored or
 controlled and is represented by the property channel. An exhaustive
@@ -352,53 +362,52 @@ description of the graphical objects and their properties will be given
 below.</p>
 </section>
 <section id="install">
-<h3>Install<a class="headerlink" href="#install" title="Permalink to this heading">#</a></h3>
+<h3>Install<a class="headerlink" href="#install" title="Link to this heading">#</a></h3>
 <p>Since version 3.1.4 of caQtDM a new build and installation procedure
-working for several linux platforms are available.</p>
+working for several linux platforms is available.</p>
 <p>First you will have to unpack the tar archive, which will create the
 necessary directories and files. In the upper directory you will find
-the necessary procedures to build the package, run it locally without
-installing, and also an installation procedure.</p>
+the necessary procedures to build the package, to install it, and to run it
+locally without installing.</p>
 <ol class="arabic simple">
-<li><p>you will have to install Qt and qwt when they are not already
+<li><p>you will have to install Qt and qwt if they are not already
 installed. On modern systems Qt should already be installed, but the
 qt-designer not necessarily and you should install it (eventually
 with sudo apt-get install qt*-designer). qwt is normally not
 installed and you should install this too.</p></li>
 <li><p>you will have to install EPICS (base)</p></li>
 <li><p>all the environment variables used for the installation will be
-defined in the script <code class="docutils literal notranslate"><span class="pre">caQtDM_Env</span></code>. When some of the variables are
-already defined in your environment, the script will use them,
+defined in the script <code class="docutils literal notranslate"><span class="pre">caQtDM_Env</span></code>. If some of the variables are
+already defined in your environment the script will use them,
 otherwise they will be defined. It is up to you to edit this file and
 adapt the variables to your environment.</p></li>
-<li><p>the script <code class="docutils literal notranslate"><span class="pre">caQtDM_BuildAll</span></code> will build you the package now into the
-directory <code class="docutils literal notranslate"><span class="pre">./caQtDM_Binaries</span></code>. You should obtain there <code class="docutils literal notranslate"><span class="pre">adl2ui</span></code>, <code class="docutils literal notranslate"><span class="pre">caQtDM</span></code>,
+<li><p>the script <code class="docutils literal notranslate"><span class="pre">caQtDM_BuildAll</span></code> will now build you the package into the
+directory <code class="docutils literal notranslate"><span class="pre">./caQtDM_Binaries</span></code>. There, you should obtain <code class="docutils literal notranslate"><span class="pre">adl2ui</span></code>, <code class="docutils literal notranslate"><span class="pre">caQtDM</span></code>,
 <code class="docutils literal notranslate"><span class="pre">libqtcontrols.so</span></code> and <code class="docutils literal notranslate"><span class="pre">libcaQtDM_Lib.so</span></code> as well as a <code class="docutils literal notranslate"><span class="pre">designer</span></code> directory
 containing 3 files <code class="docutils literal notranslate"><span class="pre">libqtcontrols*_plugin.so</span></code>. if you encounter a
 problem when building due to some environment variable problem or
-while not everything was installed before, you may correct your
-problem and run the script again. In case you want to cleanup you use
-the script <code class="docutils literal notranslate"><span class="pre">caQtDM_CleanAll</span></code>, which will also delete the resulting
+because not everything was installed before, you may correct your
+problem and run the script again. In case you want to clean up you use
+the script <code class="docutils literal notranslate"><span class="pre">caQtDM_CleanAll</span></code> which will also delete the resulting
 binaries.</p></li>
 <li><p>you may try to install the package: the package should normally be
 installed in the EPICS extensions and the environment variables are
 pointing to them.</p></li>
-<li><p>running <code class="docutils literal notranslate"><span class="pre">caQtDM</span></code>: when the package has been successfully build into the
+<li><p>running <code class="docutils literal notranslate"><span class="pre">caQtDM</span></code>: when the package has been successfully built into the
 directory <code class="docutils literal notranslate"><span class="pre">./caQtDM_Binaries</span></code>, you can start <code class="docutils literal notranslate"><span class="pre">caQtDM</span></code> by using the script
 <code class="docutils literal notranslate"><span class="pre">startDM_Local</span></code> and the qt-designer by the script <code class="docutils literal notranslate"><span class="pre">qtdesigner</span></code> (all
 located in the main directory where you expanded the tar file). These
 scripts will set some important environment variables in order to set
 the path, the plugin_path and to point to the test directory provided
-with the package (<code class="docutils literal notranslate"><span class="pre">./caQtDM_Tests</span></code>). In this directory also the
-stylesheets are located to be used for a nice rendering. You may call
+with the package (<code class="docutils literal notranslate"><span class="pre">./caQtDM_Tests</span></code>). In this directory are also the
+stylesheets located to be used for a nice rendering. You may call
 the <code class="docutils literal notranslate"><span class="pre">test.ui</span></code> file with the above mentioned scripts. In order to test
 the display some EPICS channels have to be defined. This can be done
-by running a softIoc shell called with run-epics also provided in
+by running a softIoc shell called with run-epics, which is also provided in
 the test directory.</p></li>
-<li><p>in case you have qwt 6.1 or greater you will have to use in
-caQtDM_QtControls/src the files qwt_thermo_marker_61.
-(<em>instead of qwt_thermo_marker</em>)</p></li>
-<li><p>in case you already use Qt5 or Qt6 with qwt6.2 the building should also be
+<li><p>in case you have qwt 6.1 or greater you will have to use the file qwt_thermo_marker_61
+in caQtDM_QtControls/src. (<em>instead of qwt_thermo_marker</em>)</p></li>
+<li><p>in case you are already using Qt5 or Qt6 with qwt6.2 the build process should also be
 straight forward.</p></li>
 <li><p>Instructions for compiling caQtDM on Windows/Linux/Mac Requirements:</p></li>
 </ol>
@@ -412,26 +421,26 @@ straight forward.</p></li>
 </ul>
 </dd>
 <dt>Max:</dt><dd><ul class="simple">
-<li><p>Qt 6.5.2</p></li>
-<li><p>Qwt 6.2.0</p></li>
-<li><p>EPICS 7.0.7</p></li>
-<li><p>MS Visual Studio 2019</p></li>
+<li><p>Qt 6.9.0</p></li>
+<li><p>Qwt 6.3.0</p></li>
+<li><p>EPICS 7.0.9</p></li>
+<li><p>MS Visual Studio 2022</p></li>
 <li><p>Wix 3.11</p></li>
 </ul>
 <p>With <code class="docutils literal notranslate"><span class="pre">caQtDM_Env.bat</span></code> you can configure your system. All settings which
 are needed will be taken from here.</p>
-<p>The building can be started with the batchfile : <code class="docutils literal notranslate"><span class="pre">caQtDM_BuildAll.bat</span></code></p>
-<p>The packaging is made with the batch file : <code class="docutils literal notranslate"><span class="pre">caQtDM_Build_Package.bat</span></code>
-This will generate a MSI installation file in the folder of
+<p>The build process can be started with the batchfile : <code class="docutils literal notranslate"><span class="pre">caQtDM_BuildAll.bat</span></code></p>
+<p>The packaging is done with the batch file : <code class="docutils literal notranslate"><span class="pre">caQtDM_Build_Package.bat</span></code>
+This will generate a MSI installation file in the folder
 <code class="docutils literal notranslate"><span class="pre">caQtDM_Binaries</span></code>.</p>
 <p>To clean the Folder you should use <code class="docutils literal notranslate"><span class="pre">caQtDM_CleanAll.bat</span></code>.</p>
 </dd>
 </dl>
 </section>
 <section id="example-build-settings-for-debian-12">
-<h3>Example build settings for Debian 12<a class="headerlink" href="#example-build-settings-for-debian-12" title="Permalink to this heading">#</a></h3>
-<div class="literal-block-wrapper docutils container" id="id45">
-<div class="code-block-caption"><span class="caption-text">installation</span><a class="headerlink" href="#id45" title="Permalink to this code">#</a></div>
+<h3>Example build settings for Debian 12<a class="headerlink" href="#example-build-settings-for-debian-12" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id46">
+<div class="code-block-caption"><span class="caption-text">installation</span><a class="headerlink" href="#id46" title="Link to this code">#</a></div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span> apt install git
  apt install qtcreator
  apt install gcc
@@ -460,8 +469,8 @@ This will generate a MSI installation file in the folder of
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id46">
-<div class="code-block-caption"><span class="caption-text">configuration</span><a class="headerlink" href="#id46" title="Permalink to this code">#</a></div>
+<div class="literal-block-wrapper docutils container" id="id47">
+<div class="code-block-caption"><span class="caption-text">configuration</span><a class="headerlink" href="#id47" title="Link to this code">#</a></div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>       #!/bin/bash
        if [ -z &quot;$QTHOME&quot; ];                then export   QTHOME=/usr;
        fi
@@ -539,9 +548,9 @@ This will generate a MSI installation file in the folder of
 </div>
 </section>
 <section id="example-build-settings-for-rocky-linux-9">
-<h3>Example build settings for Rocky Linux 9<a class="headerlink" href="#example-build-settings-for-rocky-linux-9" title="Permalink to this heading">#</a></h3>
-<div class="literal-block-wrapper docutils container" id="id47">
-<div class="code-block-caption"><span class="caption-text">installation</span><a class="headerlink" href="#id47" title="Permalink to this code">#</a></div>
+<h3>Example build settings for Rocky Linux 9<a class="headerlink" href="#example-build-settings-for-rocky-linux-9" title="Link to this heading">#</a></h3>
+<div class="literal-block-wrapper docutils container" id="id48">
+<div class="code-block-caption"><span class="caption-text">installation</span><a class="headerlink" href="#id48" title="Link to this code">#</a></div>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    dnf -y install epel-release
     dnf install qt-creator
     dnf install readline-devel
@@ -639,10 +648,25 @@ This will generate a MSI installation file in the folder of
 </div>
 </section>
 <section id="development-history">
-<h3>Development history<a class="headerlink" href="#development-history" title="Permalink to this heading">#</a></h3>
+<h3>Development history<a class="headerlink" href="#development-history" title="Link to this heading">#</a></h3>
 <p>The following list describe the new features and bug fixes for every
 release. You can follow the development history and detect if a bug in
 the used version has been solved.</p>
+<div class="docutils container">
+<p>4.5.0</p>
+</div>
+<ul class="simple">
+<li><p>special character feature handling by CAQTDM_CUSTOM_UNIT_REPLACMETS</p></li>
+<li><p>caStripplot improved data handling</p></li>
+<li><p>optimized UI loading by reducing the load of incoming data (CAQTDM_SUPPRESS_UPDATES_ONLOAD)</p></li>
+<li><p>improved colors in caQtDM status window</p></li>
+<li><p>added UI loading benchmark</p></li>
+<li><p>added the new archiverhttp-protocol</p></li>
+<li><p>some code refurbishments</p></li>
+<li><p>RPM for RHEL9</p></li>
+<li><p>logfile generation for status window (CAQTDM_CREATE_LOGFILE,CAQTDM_LOGFILE_PATH)</p></li>
+<li><p>small documentation updates</p></li>
+</ul>
 <div class="docutils container">
 <p>4.4.1</p>
 </div>
@@ -953,7 +977,7 @@ the used version has been solved.</p>
 <li><p>edl2ui enhanced (by Lucas Carvalho)</p></li>
 <li><p>several warnings (mainly on mac osx) solved</p></li>
 <li><p>capolyline was not resizing correctly, this has been now corrected</p></li>
-<li><p>a string containing a semicolon was only displayed up to the semicolumn, this is corrected now.</p></li>
+<li><p>a string containing a semicolon was only displayed up to the semicolon, this is corrected now.</p></li>
 <li><p>cacamera and cascan2d got display of selected values and readback values with different representations and may therefore write values to the CS</p></li>
 <li><p>soft variable bug corrected (was not always found when writing)</p></li>
 <li><p>catextentry got input dialogs (filedialog in case of strings, otherwise simple dialog)</p></li>
@@ -1343,40 +1367,39 @@ message when</p></li>
 </ul>
 </section>
 <section id="caqtdm-custom-widgets">
-<h3>caQtDM Custom Widgets<a class="headerlink" href="#caqtdm-custom-widgets" title="Permalink to this heading">#</a></h3>
+<h3>caQtDM Custom Widgets<a class="headerlink" href="#caqtdm-custom-widgets" title="Link to this heading">#</a></h3>
 <p>The custom widgets used in caQtDM have been divided into three categories,
-as was done in MEDM. MEDM users are used to these categories and we
-have therefore kept the categorisation in Graphics, Controller and
+as done in MEDM. MEDM users are used to these categories and we
+have therefore kept the categorisation split up in Graphics, Controller and
 Monitors.</p>
 <dl class="simple">
 <dt>Graphics:</dt><dd><p>Items such as frames, labels,
 graphical entities like rectangles, triangles, lines, …, images and
-composite objects (called here <em>includes</em>, while included from other <code class="docutils literal notranslate"><span class="pre">.ui</span></code>
-files.</p>
+composite objects (called here <em>includes</em>, because they are included
+from other <code class="docutils literal notranslate"><span class="pre">.ui</span></code> files.</p>
 </dd>
 <dt>Monitors:</dt><dd><p>Objects that monitor the state or values of
-process variables through display of values, plots, tables,
+process variables and display values, plots, tables,
 thermometers, dials, …</p>
 </dd>
 <dt>Controllers:</dt><dd><p>Objects that change the
 values of process variables through many different objects. You will
-find here an exact description of them with their properties.</p>
+find an exact description of them with their properties here.</p>
 </dd>
 </dl>
-<p>For all
-objects, you have normally their geometry (position and size),
+<p>For all objects, you normally have their geometry (position and size),
 size policy and some other properties like tooltips. It has to be noted
 that for many widgets their stylesheet will be overwritten in order to
 get the representation that is requested when specifying for example
 background, foreground, border colors or other properties. The
 stylesheet can be influenced in some cases by specifying a stylesheet
 for the mainwindow or in <code class="docutils literal notranslate"><span class="pre">stylesheet.qss</span></code>, a stylesheet found in the
-caQtDM path. The <code class="docutils literal notranslate"><span class="pre">adl2ui</span></code> converter uses normally this stylesheet to
+caQtDM path. The <code class="docutils literal notranslate"><span class="pre">adl2ui</span></code> converter normally uses this stylesheet to
 integrate these defaults into the generated <code class="docutils literal notranslate"><span class="pre">.ui</span></code> file. You may delete
 this stylesheet or change it to your convenience. However as mentioned
 before, many styles will be overwritten.</p>
-<table class="table" id="id48">
-<caption><span class="caption-text">Overview of the caQtDM Custom Widgets</span><a class="headerlink" href="#id48" title="Permalink to this table">#</a></caption>
+<div class="pst-scrollable-table-container"><table class="table" id="id49">
+<caption><span class="caption-text">Overview of the caQtDM Custom Widgets</span><a class="headerlink" href="#id49" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Graphics</p></th>
 <th class="head"><p>Monitors</p></th>
@@ -1400,7 +1423,7 @@ before, many styles will be overwritten.</p>
 <td><p><a class="reference internal" href="#calineargauge"><span class="std std-ref">caLinearGauge</span></a>, <a class="reference internal" href="#cacirculargauge"><span class="std std-ref">caCircularGauge</span></a></p></td>
 <td><p><a class="reference internal" href="#carelateddisplay"><span class="std std-ref">caRelatedDisplay</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#caimage"><span class="std std-ref">caImage</span></a>: any image format, mostly used for animated gif</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#caimage"><span class="std std-ref">caImage</span></a>: any image format, mostly used for animated gifs</p></td>
 <td><p><a class="reference internal" href="#cathermo"><span class="std std-ref">caThermo</span></a></p></td>
 <td><p><a class="reference internal" href="#cashellcommand"><span class="std std-ref">caShellCommand</span></a></p></td>
 </tr>
@@ -1434,14 +1457,15 @@ before, many styles will be overwritten.</p>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Their main properties are described below. It must be noted that
-through inheritance of Objects, other properties exist that are not
-necessary relevant here.</p>
+through inheritance of Objects other properties exist that are not
+necessarily relevant here.</p>
 </section>
 <section id="all-monitor-objects">
-<h3>all monitor objects<a class="headerlink" href="#all-monitor-objects" title="Permalink to this heading">#</a></h3>
+<h3>all monitor objects<a class="headerlink" href="#all-monitor-objects" title="Link to this heading">#</a></h3>
 <section id="calineedit-the-most-used-graphical-object-for-data-monitoring">
-<span id="calineedit"></span><h4><code class="docutils literal notranslate"><span class="pre">caLineEdit</span></code>, the most used graphical object for data monitoring<a class="headerlink" href="#calineedit-the-most-used-graphical-object-for-data-monitoring" title="Permalink to this heading">#</a></h4>
+<span id="calineedit"></span><h4><code class="docutils literal notranslate"><span class="pre">caLineEdit</span></code>, the most used graphical object for data monitoring<a class="headerlink" href="#calineedit-the-most-used-graphical-object-for-data-monitoring" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Text Update in MEDM.</p>
 <blockquote>
 <div><div class="line-block">
@@ -1456,7 +1480,7 @@ variable</p>
 </dd>
 <dt><strong>background:</strong></dt><dd><p>QColor: color used for the background</p>
 </dd>
-<dt><strong>colorMode:</strong></dt><dd><table class="table">
+<dt><strong>colorMode:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Default</p></td>
 <td><p>Show the object in colors given by stylesheets.</p></td>
@@ -1469,9 +1493,9 @@ background and foreground.</p></td>
 <td><p>Show the object in alarm colors based on the
 severity of the associated process variable.
 (green, yellow, red, white or gray). The foregound
-or the background are given by the stylesheets
-depending on the alarmHandling specifying if alarm
-handling is done on the foreground or on the
+or the background is given by the stylesheets
+depending on if alarmHandling specified that the
+alarm handling is done on the foreground or on the
 background.</p></td>
 </tr>
 <tr class="row-even"><td><p>Alarm</p></td>
@@ -1481,6 +1505,7 @@ foreground</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 <dt><strong>framePresent:</strong></dt><dd><p>boolean: specifies if a border will be drawn around the object,
 frameLineWidth must be different from zero in order to see the
@@ -1495,7 +1520,7 @@ foreground or the background will show alarm colors.</p>
 </dd>
 <dt><strong>precision:</strong></dt><dd><p>Integer: precision in case of precisionMode=User</p>
 </dd>
-<dt><strong>precisionMode:</strong></dt><dd><table class="table">
+<dt><strong>precisionMode:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Channel</p></td>
 <td><p>Precision specified by the control system will be used</p></td>
@@ -1505,8 +1530,9 @@ foreground or the background will show alarm colors.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
-<dt><strong>limitsMode:</strong></dt><dd><table class="table">
+<dt><strong>limitsMode:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Channel</p></td>
 <td><p>Limits specified by the control system will be used
@@ -1517,12 +1543,13 @@ foreground or the background will show alarm colors.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 <dt><strong>maxValue:</strong></dt><dd><p>float: maximum value used in case of limitsMode=User</p>
 </dd>
 <dt><strong>minValue:</strong></dt><dd><p>float: minimum value used in case of limitsMode=User</p>
 </dd>
-<dt><strong>fontScaleMode:</strong></dt><dd><table class="table">
+<dt><strong>fontScaleMode:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>None</p></td>
 <td><p>No scaling will be done</p></td>
@@ -1538,10 +1565,11 @@ resizing of the display</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 <dt><strong>unitsEnabled:</strong></dt><dd><p>boolean: when checked will append the unit to the value</p>
 </dd>
-<dt><strong>formatType:</strong></dt><dd><table class="table">
+<dt><strong>formatType:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>decimal</p></td>
 <td><p>value encoded in f format using
@@ -1579,13 +1607,14 @@ format</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 </dl>
 </div></blockquote>
 <hr class="docutils" />
 </section>
 <section id="cathermo">
-<span id="id10"></span><h4><code class="docutils literal notranslate"><span class="pre">caThermo</span></code><a class="headerlink" href="#cathermo" title="Permalink to this heading">#</a></h4>
+<span id="id10"></span><h4><code class="docutils literal notranslate"><span class="pre">caThermo</span></code><a class="headerlink" href="#cathermo" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Bar Monitor in MEDM.</p>
 <blockquote>
 <div><div class="line-block">
@@ -1600,7 +1629,7 @@ variable</p>
 </dd>
 <dt><strong>background:</strong></dt><dd><p>QColor: color used for the background</p>
 </dd>
-<dt><strong>colorMode:</strong></dt><dd><table class="table">
+<dt><strong>colorMode:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Default</p></td>
 <td><p>Show the object in colors given by stylesheets.</p></td>
@@ -1616,6 +1645,7 @@ pipe in case of alarm</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 <dt><strong>direction:</strong></dt><dd><p>Up, Down, Left, Right</p>
 </dd>
@@ -1627,7 +1657,7 @@ have no scale.</p>
 </dd>
 <dt><strong>logScale:</strong></dt><dd><p>boolean: true or false</p>
 </dd>
-<dt><strong>limitsMode:</strong></dt><dd><table class="table">
+<dt><strong>limitsMode:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Channel</p></td>
 <td><p>Limits specified by the control system will be usd (HOPR,
@@ -1638,6 +1668,7 @@ LOPR for EPICS)</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 <dt><strong>type:</strong></dt><dd><p>Pipe, marker, PipefromCenter</p>
 </dd>
@@ -1652,7 +1683,7 @@ LOPR for EPICS)</p></td>
 <hr class="docutils" />
 </section>
 <section id="caled">
-<span id="id11"></span><h4><code class="docutils literal notranslate"><span class="pre">caLed</span></code><a class="headerlink" href="#caled" title="Permalink to this heading">#</a></h4>
+<span id="id11"></span><h4><code class="docutils literal notranslate"><span class="pre">caLed</span></code><a class="headerlink" href="#caled" title="Link to this heading">#</a></h4>
 <p>has no equivalent in MEDM.</p>
 <blockquote>
 <div><div class="line-block">
@@ -1669,7 +1700,7 @@ variable</p>
 </dd>
 <dt><strong>trueColor:</strong></dt><dd><p>QColor: color used when the bit is set</p>
 </dd>
-<dt><strong>colorMode:</strong></dt><dd><table class="table">
+<dt><strong>colorMode:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Static</p></td>
 <td><p>Show the object in colors given by the properties
@@ -1681,13 +1712,14 @@ background and foreground, but with alarm handling</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 </dl>
 </div></blockquote>
 <hr class="docutils" />
 </section>
 <section id="calineargauge">
-<span id="id12"></span><h4><code class="docutils literal notranslate"><span class="pre">caLinearGauge</span></code><a class="headerlink" href="#calineargauge" title="Permalink to this heading">#</a></h4>
+<span id="id12"></span><h4><code class="docutils literal notranslate"><span class="pre">caLinearGauge</span></code><a class="headerlink" href="#calineargauge" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Bar Monitor in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -1696,7 +1728,7 @@ background and foreground, but with alarm handling</p></td>
 <hr class="docutils" />
 </section>
 <section id="cacirculargauge">
-<span id="id13"></span><h4><code class="docutils literal notranslate"><span class="pre">caCircularGauge</span></code><a class="headerlink" href="#cacirculargauge" title="Permalink to this heading">#</a></h4>
+<span id="id13"></span><h4><code class="docutils literal notranslate"><span class="pre">caCircularGauge</span></code><a class="headerlink" href="#cacirculargauge" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Meter Monitor in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -1705,7 +1737,7 @@ background and foreground, but with alarm handling</p></td>
 <hr class="docutils" />
 </section>
 <section id="cacartesianplot">
-<span id="id14"></span><h4><code class="docutils literal notranslate"><span class="pre">caCartesianPlot</span></code><a class="headerlink" href="#cacartesianplot" title="Permalink to this heading">#</a></h4>
+<span id="id14"></span><h4><code class="docutils literal notranslate"><span class="pre">caCartesianPlot</span></code><a class="headerlink" href="#cacartesianplot" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Cartesian plot in MEDM and will plot up to 6
 curves</p>
 <blockquote>
@@ -1720,31 +1752,31 @@ curves</p>
 </dd>
 <dt><strong>TitleY</strong></dt><dd><p>QString: Title of the Y-axis</p>
 </dd>
-<dt><strong>channels_1, channels_2, channels_3, channels_4, channels_5, channels_6</strong></dt><dd><p>QString: these strings represents the control system process
+<dt><strong>channels_1, channels_2, channels_3, channels_4, channels_5, channels_6</strong></dt><dd><p>QString: these strings represent the control system process
 variables; each channelpair is composed of two channels separated
 by a semicolon.
 When specifying only one channel, you will have to put a
 semicolon in fron or at the end of the string in order to specify
-x or y, you will find in the table below how the cartesian plot
+x or y.  In the table below you will find how the cartesian plot
 behaves in case of array or scalars or when only one channel is
 specified.</p>
 </dd>
-<dt><strong>Style_1, Style_2, Style_3, Style_4, Style_5, Style_6:</strong></dt><dd><table class="table">
+<dt><strong>Style_1, Style_2, Style_3, Style_4, Style_5, Style_6:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>NoCurve</p></td>
-<td><p>no curve, only symbols will be drawn when they are specified</p></td>
+<td><p>no curve, symbols will only be drawn if they are specified</p></td>
 </tr>
 <tr class="row-even"><td><p>Lines</p></td>
 <td><p>normal curve drawn with lines</p></td>
 </tr>
 <tr class="row-odd"><td><p>Sticks</p></td>
-<td><p>curve draw with sticks from the x base</p></td>
+<td><p>curve drawn with sticks from the x base</p></td>
 </tr>
 <tr class="row-even"><td><p>Steps</p></td>
 <td><p>curve drawn with steps</p></td>
 </tr>
 <tr class="row-odd"><td><p>Dots</p></td>
-<td><p>curve only dots are drawn</p></td>
+<td><p>curve with only dots drawn</p></td>
 </tr>
 <tr class="row-even"><td><p>FillUnder</p></td>
 <td><p>curve will be filled from the x base</p></td>
@@ -1757,8 +1789,9 @@ specified.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
-<dt><strong>symbol_1, symbol_2, symbol_3, symbol_4, symbol_5, symbol_6:</strong></dt><dd><table class="table">
+<dt><strong>symbol_1, symbol_2, symbol_3, symbol_4, symbol_5, symbol_6:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>NoSymbol</p></td>
 <td><p>no symbol will be drawn</p></td>
@@ -1807,6 +1840,7 @@ specified.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 <dt><strong>color_1, color_2, color_3, color_4, color_5, color_6:</strong></dt><dd><p>QColor: color used for the curve</p>
 </dd>
@@ -1829,7 +1863,7 @@ when the process variable turns either zero or non-zero, depending
 on the Erase Mode . The Erase Mode is only relevant if there is an
 erase channel.</p>
 </dd>
-<dt><strong>eraseMode:</strong></dt><dd><table class="table">
+<dt><strong>eraseMode:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>ifnotzero</p></td>
 <td><p>Erase the plot if the erase-channel process variable is
@@ -1841,8 +1875,9 @@ zero</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
-<dt><strong>plotMode:</strong></dt><dd><table class="table">
+<dt><strong>plotMode:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>PlotNPointsAndStop</p></td>
 <td><p>Plot n points corresponding to the first n
@@ -1856,19 +1891,21 @@ previous points.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
-<dt><strong>XaxisType/YaxisType:</strong></dt><dd><table class="table">
+<dt><strong>XaxisType/YaxisType:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>linear</p></td>
 <td><p>Use a linear axis</p></td>
 </tr>
 <tr class="row-even"><td><p>log10</p></td>
-<td><p>Use a log axis</p></td>
+<td><p>Use a logarithmic axis to the base 10</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
-<dt><strong>XaxisScaling/YaxisScaling:</strong></dt><dd><table class="table">
+<dt><strong>XaxisScaling/YaxisScaling:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Auto</p></td>
 <td><p>Let the graph routine decide on the axis range depending
@@ -1878,11 +1915,11 @@ on the data</p></td>
 <td><p>Get the axis range from the process variable</p></td>
 </tr>
 <tr class="row-odd"><td><p>User</p></td>
-<td><p>Specifically specify the minimum and maximum values for
-the axis.</p></td>
+<td><p>Specify custom minimum and maximum values for the axis</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 <dt><strong>background:</strong></dt><dd><p>QColor: color used for the background</p>
 </dd>
@@ -1906,8 +1943,8 @@ must be separated by a semicolon</p>
 </dd>
 </dl>
 <div class="docutils container">
-<p>in caQtDM curve can be zoomed with the mouse by pressing the left
-mouse button and selecting the area that has to be zoomed. The
+<p>In caQtDM the curve can be zoomed in on with the mouse by pressing the
+left mouse button and selecting the area that has to be zoomed. The
 area is shown by a rubberband rectangle. Reset zoom can be chosen
 through the context menu. Translation can be done by pressing the
 middle mouse button and moving the mouse. Pressing the right mouse
@@ -1918,7 +1955,7 @@ Cartesian Plot. This plot is a very important tool used in control
 systems and its behaviour was taken from MEDM. The Cartesian
 consists of an X and one or two Y axes on which data can be
 plotted. The sets of data are called traces and consist of a set
-of (x, y) pairswith the properties shown above. The traces
+of (x, y) pairs with the properties shown above. The traces
 correspond to curves on the plot. Currently there can be up to six
 traces on a plot. Each trace can (but does not have to) have a
 process variable from which to get the x values and another from
@@ -1927,7 +1964,7 @@ process variables, such as Waveforms, or they can be scalar
 process variables with only a single value. The variables have to
 be separated by a semicolon (see above).
 There are eight possible kinds of traces as seen in the following
-table. The traces for a given plot do not all have to be of the
+table. The traces for a given plot do not have to be all of the
 same kind - they can be mixed. (In the table Nx is the number of
 elements in the process variable specified for x, and Ny is the
 number of elements in the process variable specified for y. The
@@ -1940,7 +1977,7 @@ properties XaxisScaling and YaxisScaling. Count is the specified
 Count for the Cartesian Plot, which is described in more detail
 below.)</p>
 <p class="rubric">Kinds of XY Traces</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Nx</p></th>
 <th class="head"><p>Ny</p></th>
@@ -2037,10 +2074,11 @@ below.)</p>
 </tbody>
 </table>
 </div>
+</div>
 <div class="docutils container">
 <p>If one of the process variables is an array with more than one
-element and if Count is a number greater than zero, then the
-specified Count is ignored and the value shown in the last column
+element and if Count is a number greater than zero, the specified
+Count is ignored and the value shown in the last column
 of the table is used. Under the same circumstances, if Count is a
 name, then it is used only if it is greater than 0 and less than
 what would be used if it were a number. That is, Count from a
@@ -2062,9 +2100,9 @@ Count in the table.) Each time the process variable changes (or
 when either one changes, in the case of X, Y Scalar) a new point
 is plotted until there are Count points. The points are plotted
 from i = 0 to the lesser of Count -1 and the number of updates.
-When the Plot Mode is “plot n pts &amp; stop,” no more points are
-plotted. When the Plot Mode is “plot last n pts,” the earliest
-point is discarded, the others are moved down, and the latest is
+When the Plot Mode is “PlotNPointsAndStop”, no more points are
+plotted. When the Plot Mode is “PlotLastNPoints”, the earliest point
+is discarded and the others are moved down, and the latest is
 plotted at the end. In the cases where one of the process
 variables is not specified, the history is plotted on that axis
 against values from 0 to Count - 1 on the other axis.</p>
@@ -2075,13 +2113,40 @@ already that perhaps Count must be twice the value described above?</p>
 <hr class="docutils" />
 </section>
 <section id="castripplot">
-<span id="id15"></span><h4><code class="docutils literal notranslate"><span class="pre">caStripPlot</span></code><a class="headerlink" href="#castripplot" title="Permalink to this heading">#</a></h4>
-<p>is the equivalent of the StripChart Monitor in MEDM.</p>
+<span id="id15"></span><h4><code class="docutils literal notranslate"><span class="pre">caStripPlot</span></code><a class="headerlink" href="#castripplot" title="Link to this heading">#</a></h4>
+<p>This serves as the replacement for the StripChart Monitor in MEDM.</p>
 <blockquote>
 <div><div class="line-block">
 <div class="line"><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object</div>
 <div class="line"><strong>Description:</strong></div>
 </div>
+<p>The caStripPlot widget can display up to 7 simultaneous curves on a plot. Every curve gets it’s data by an EPICS pv.
+The data comes in the form of doubles, indicating the y values. The x values are automatically calculated by either taking
+the time a value was received or by setting a static value based on XaxisType. The caStripPlot can either display the values
+on a logarithmic scale to the base 10 or on a linear scale. There are also 3 different ways the caStripPlot is scaled.</p>
+<p>It can have fixed limits (minimum and maximum) using the fixedScale feature.
+You can have multiple curves, even with different limits; therefore the y-axis can only display the limits of one curve at a time.
+By default, the limits of the first curve are displayed. The other curves still have their original limits
+and their points are drawn like the y-axis had the corresponding limits. Only the y-axis doesn’t look like it.
+Because of that, you can cycle through the curves whose limits are displayed on the y-axis, either with the Property CurvesIterableInLegend
+or with CurvesSelectableInPlot or by using one of the slots described below. Due to backwards compatibility, any features that select a different curve
+to dispay it’s limits are disabled by default. The currently displayed axis is indicated by coloring the axis in the color of the represented curve
+and by underlining the channel name for this curve in the legend.</p>
+<p>The caStripPlot can also dynamically calculate the limits itself by using the autoScale or selectiveAutoScale feature. With autoScale, the caStripPlot analyzes all
+currently drawn points on all curves and adjusts the limits to fit all curves in the plot entirely. Because this might cause the plot to be unreadable if
+one curve has extremely high or low spikes, selectiveAutoScale can be used instead to be able to deselect single curves from being taken into consideration
+when calculating the new limits. Curves can be deselected in the “change axis” menu accessible through the context menu by right-clicking the plot.
+In this menu, the scaling can also be selected, just as the y-axis type (linear or log10) and the limits for all curves.
+Additionally, because negative values on one curve can completely distort a logarithmic scale on autoScale, there is an extra option for this specific problem.
+If the scale is both autoScale and logarithmic, a field will appear in the “change axis” menu, where a custom minimum value can be defined for the plot.
+One important thing to consider is that even though the y-axis limits only display for one curve at a time with fixedScale, in autoScale the y-axis limits are
+correctly displayed for all curves, as then they all have the same, automatically computed limits. This is also why you cant change the y-axis to be displayed
+with autoScale or selectiveAutoScale, because there is only one.</p>
+<p>You can also freeze the image currently drawn in the plot by pausing and resuming it using the provided public slots. You can also restart the plot if you want to
+clear it or if graphical mistakes happen you want to erase.</p>
+<p>With the property plotpicker activated, a field will appear upon hovering over the plot, giving information about the point your cursor is currently on.
+It will display the x- and y-axis values, so it can be easily spotted which value a curve had at a certain time. But remember: The y-data is for the
+first curve only, the others might have different y-values there. To see their value, the displayed y-axis has to be switched first.</p>
 <dl>
 <dt><strong>Title</strong></dt><dd><p>QString: Titel of the plot</p>
 </dd>
@@ -2089,13 +2154,13 @@ already that perhaps Count must be twice the value described above?</p>
 </dd>
 <dt><strong>TitleY</strong></dt><dd><p>QString: Title of the Y-axis</p>
 </dd>
-<dt><strong>channels</strong></dt><dd><p>QString: this string represents the control system process
+<dt><strong>channelsList</strong></dt><dd><p>QString: this string represents the control system process
 variables; the channels have to be separated by a semicolon.</p>
 </dd>
-<dt><strong>units</strong></dt><dd><table class="table">
+<dt><strong>units</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Millisecond</p></td>
-<td><p>The update period is in milli-seconds.</p></td>
+<td><p>The update period is in milliseconds.</p></td>
 </tr>
 <tr class="row-even"><td><p>second</p></td>
 <td><p>The update period is in seconds.</p></td>
@@ -2105,82 +2170,227 @@ variables; the channels have to be separated by a semicolon.</p>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
-<dt><strong>Period</strong></dt><dd><p>Integer: the timespan of the plot for the specified units</p>
+<dt><strong>period</strong></dt><dd><p>Integer: the timespan of the plot for the specified units</p>
 </dd>
-<dt><strong>XaxisType</strong></dt><dd><table class="table">
+<dt><strong>refreshRate</strong></dt><dd><p>sets the refresh rate for the plot
+======= ======================================
+low     The refresh rate is set to 2.5 Hz.
+medium  The refresh rate is set to 5 Hz.
+high    The refresh rate is set to 10 Hz.
+======= ======================================</p>
+</dd>
+<dt><strong>XaxisType</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
-<tr class="row-odd"><td><p>TimeScale</p></td>
-<td><p>The scale of the x-axis is given with
-hours:minutes:seconds</p></td>
-</tr>
-<tr class="row-even"><td><p>ValueScale</p></td>
+<tr class="row-odd"><td><p>ValueScale</p></td>
 <td><p>The scale of the x-axis is given with the values based
 on the period value</p></td>
 </tr>
+<tr class="row-even"><td><p>TimeScale</p></td>
+<td><p>The scale of the x-axis is given in the format
+hours:minutes:seconds</p></td>
+</tr>
+<tr class="row-odd"><td><p>TimeScaleFix</p></td>
+<td></td>
+</tr>
 </tbody>
 </table>
+</div>
 </dd>
-<dt><strong>YaxisType:</strong></dt><dd><table class="table">
+<dt><strong>numberOfXticks</strong></dt><dd><p>Integer: the number of ticks on the x-axis and therefore the number of horizontal grid lines.</p>
+</dd>
+<dt><strong>YAxisType:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>linear</p></td>
-<td><p>Use a linear axis</p></td>
+<td><p>Use a linear y-axis</p></td>
 </tr>
 <tr class="row-even"><td><p>log10</p></td>
-<td><p>Use a log axis</p></td>
+<td><p>Use a logarithmic y-axis to the base 10</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
-<dt><strong>XaxisScalingMax_1 …..7/YaxisScalingMin_1, …..7:</strong></dt><dd><table class="table">
+<dt><strong>YAxisScaling</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>fixedScale</p></td>
+<td><p>The y-axis has fixed minimum and maximum values that
+are dependent on YaxisScaling{Max}_1 …..7</p></td>
+</tr>
+<tr class="row-even"><td><p>autoScale</p></td>
+<td><p>The y-axis minimum and maximum values are dynamically
+selected to fit every curve with some margin</p></td>
+</tr>
+<tr class="row-odd"><td><p>selectiveAutoScale</p></td>
+<td><p>Does the same as autoScale, but single curves can be
+deselected in the context menu so the plot only fits
+selected curves. Can be used to prevent spikes in one
+curve from distorting the min/max values for the plot</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><strong>plotpicker:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p>off</p></td>
+<td><p>PlotPicker utility is disabled</p></td>
+</tr>
+<tr class="row-even"><td><p>on</p></td>
+<td><p>PlotPicker window with plot information will display when hovering over the plot</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><strong>CurvesIterableInLegend:</strong></dt><dd><dl class="simple">
+<dt>bool: when activated, left-clicking the legend will cycle through the different axis limits to display on the y-axis</dt><dd><p>Important: This feature only works with YAxisScaling=fixedScale</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>CurvesSelectableInPlot:</strong></dt><dd><dl class="simple">
+<dt>bool: when activated, left-clicking on a curve in the plot will select its limits to display on the y-axis</dt><dd><p>Important: This feature only works with YAxisScaling=fixedScale</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>YaxisLimitsMax_1 …..7/YaxisLimitsMin_1 …..7:</strong></dt><dd><p>QString: minimum/maximum value used in case of YaxisScaling{Min/Max}_1 …..7=User</p>
+</dd>
+<dt><strong>YaxisScalingMax_1 …..7/YaxisScalingMin_1, …..7:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Channel</p></td>
 <td><p>Get the axis range from the process variable</p></td>
 </tr>
 <tr class="row-even"><td><p>User</p></td>
-<td><p>Specifically specify the minimum and maximum values for the axis.</p></td>
+<td><p>Specify custom minimum and maximum values for the axis.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
-<dt><strong>Style_1 ….7:</strong></dt><dd><table class="table">
+<dt><strong>Style_1 ….7:</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Lines</p></td>
-<td><p>normal curve</p></td>
+<td><p>normal curve, like a line</p></td>
 </tr>
 <tr class="row-even"><td><p>FillUnder</p></td>
 <td><p>curve will be filled from the x base</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 <dt><strong>color_1 ….7:</strong></dt><dd><p>QColor: color used for the curve</p>
 </dd>
-<dt><strong>XaxisLimitsMax_1 …..7/YaxisLimitsMin_1, …..7:</strong></dt><dd><p>QString: minimum/maximum value used in case of limitsMode=User</p>
-</dd>
-<dt><strong>YaxisLimits:</strong></dt><dd><p>QString: minimum value used in case of limitsMode=User; the values
-must be separated by a semicolon</p>
+<dt><strong>foreground:</strong></dt><dd><p>QColor: color used for the foreground</p>
 </dd>
 <dt><strong>background:</strong></dt><dd><p>QColor: color used for the background</p>
 </dd>
-<dt><strong>foreground:</strong></dt><dd><p>QColor: color used for the foreground</p>
-</dd>
 <dt><strong>scaleColor:</strong></dt><dd><p>QColor: color used for the scale if scales are specified</p>
+</dd>
+<dt><strong>grid:</strong></dt><dd><p>bool: specifies if the grid should be drawn</p>
 </dd>
 <dt><strong>gridColor:</strong></dt><dd><p>QColor: color used for the grid if grid is specified</p>
 </dd>
-<dt><strong>XaxisEnabled:</strong></dt><dd><p>bool: specifies if the x axis should be drawn</p>
+<dt><strong>XaxisEnabled:</strong></dt><dd><p>bool: specifies if the x-axis should be drawn</p>
 </dd>
-<dt><strong>YaxisEnabled:</strong></dt><dd><p>bool: specifies if the y axis should be drawn</p>
+<dt><strong>YaxisEnabled:</strong></dt><dd><p>bool: specifies if the y-axis should be drawn</p>
 </dd>
 <dt><strong>LegendEnabled:</strong></dt><dd><p>bool: specifies if the legend should be drawn</p>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line"><strong>Dynamic Properties:</strong>
+container::
+caStripPlot also has dynamic properties. For panel designers, they can be treated the same as regular QProperties.</div>
+</div>
+<blockquote>
+<div><p><strong>xAxisToleranceFactor:</strong>
+double: value between (not equal to) 0 - 1 defining the tolerance factor for selecting curves in the plot when
+CurvesSelectableInPlot is set to true. When the plot is clicked, the period in seconds is multiplied by the xAxisToleranceFactor.
+This new Value is used as the tolerance to determine if a click in the plot landed on a curve or not. Only clicks that have a point
+with an x-value deviating no more than this tolerance from the mouse click are registered. The curve it selects is the one with a point that is both within
+the x-axis tolerance and is the closest on the y-axis from all the points within the x-axis tolerance.
+In short: this property sets the accuracy of mouse clicks when selecting a curve by clicking in the plot, the default value is 0.01, creating a 1% tolerance.
+This property only has an effect if CurvesSelectableInPlot is set to true, otherwise no clicks in the plot are registered.</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><strong>Public Slots:</strong></div>
+</div>
+<div class="there are a few public slots available for the castripplot widgets those provide an api calling certain functions directly with triggers connected from qtdesigner to make use of slot you first have trigger widget this can be something like catogglebutton or cacalc then need open signals and editor in connect signal want docutils container">
+<p>For more information about the signal and slots editor, please turn to the documentation for QtDesigner.</p>
+<p>Slots are meant to give panel designers more creative freedom and ways to dynamically interact with caQtDM widgets.</p>
+</div>
+<dl>
+<dt><strong>animation(QRect p):</strong></dt><dd><p>Input: QRect: X = new X Coordinate, Y = new Y Coordinate</p>
+<p>Slot to change the position of the plot. The X and Y Coordinates of the QRect are used to set the new coordinates of the plot. This can be used
+for example by creating a cacalc to output a QRect (with %QRect in “calc”, two channels in “channel” and “channelB” and onAnyChange in “eventSignal”)
+and then use the output signal as input for animation(QRect). In this example, every time one of the input channels changes, the caStripPlot is relocated to
+the new position.</p>
+</dd>
+<dt><strong>void hideObject(bool hideit):</strong></dt><dd><p>Input: bool: false to show, true to hide</p>
+<p>Slot to hide the whole caStripPlot widget. It still works in the background and registers new points, so don’t use this to load a lot of different variations
+of a plot, as they will all consume power and affect performance.</p>
+</dd>
+<dt><strong>stopPlot():</strong></dt><dd><p>Input: nothing</p>
+<p>Slot to stop the plot. This does the same as pausing it with the slot pausePlot, just that it only stops it, to resume it you have to use another slot.</p>
+</dd>
+<dt><strong>resumePlot():</strong></dt><dd><p>Input: nothing</p>
+<p>Slot to resume the plot when it is stopped. This does the same as resuming it with the slot pausePlot, just that it only resumes it if stopped by another slot.</p>
+</dd>
+<dt><strong>restartPlot():</strong></dt><dd><p>Input: nothing</p>
+<p>Slot to restart the plot. It clears the plot so the canvas empty and then starts tracing the curves again as they come in.
+Can be used to get rid of graphical errors on the plot or just to get an empty plot again.</p>
+</dd>
+<dt><strong>pausePlot(bool pausePlot):</strong></dt><dd><p>Input: bool: true to pause the plot, false to resume it</p>
+<p>Slot to pause and resume the plot with just one plot. Will freeze the plot, manipulations like displaying another y-axis are still
+possible to analyze the plot data. Disclaimer: This is meant for short pauses, it is recommended to resume the plot shortly after stopping.
+If the “apply” button is clicked in the “change axis” menu (reachable through context menu) the image might start to fade away, this action
+is possible but not supported as it overwrites the memory holding the paused plot data.</p>
+</dd>
+<dt><strong>selectFixedYAxis(int newYAxisIndex):</strong></dt><dd><p>Input: integer: any value from 0 through 6 and no more than the index of the last curve in the plot, indicating a curve index</p>
+<p>Slot to select a curve by index whose limits are displayed on the y-axis. So if the plot has 3 channels connected to curves 1, 2 and 3
+then their index is 0, 1 and 2. By calling this slot with the integer 1, the limits of the second curve will be displayed in the y-axis.
+If this slot is called and the property YAxisScaling is not set to fixedScale, it will be set to fixedScale.
+The actions of this slot cannot be configured using a default property. The y-axis will by default display the limits of the first curve.</p>
+</dd>
+<dt><strong>setPlotPickerMode(int mode):</strong></dt><dd><p>Input: integer: either 0 for off or 1 for on</p>
+<p>Slot to disable or enable the plotpicker utility
+Does the same as setting the plotpicker property but can be dynamically called.</p>
+</dd>
+<dt><strong>setIterableCurves(bool itCurvs):</strong></dt><dd><p>Input: bool: true to activate, false to deactivate</p>
+<p>Slot to select whether the curve whose limits are displayed can be iterated over by clicking the plot legend.
+Does the same as setting the CurvesIterableInLegend property but can be dynamically called.</p>
+</dd>
+<dt><strong>setSelectableCurves(bool selectCurvs):</strong></dt><dd><blockquote>
+<div><p>Input: bool: true to activate, false to deactivate</p>
+<p>Slot to select whether the limits displayed on the y-axis can be selected by clicking a curve with the new limits in the plot.
+Does the same as setting the CurvesSelectableInPlot property but can be dynamically called.</p>
+<blockquote>
+<div><p>void animation(QRect p) {</p>
+</div></blockquote>
+<dl>
+<dt>#include “animationcode.h”</dt><dd><p>}</p>
+<p>void hideObject(bool hideit) {</p>
+</dd>
+<dt>#include “hideobjectcode.h”</dt><dd><p>}</p>
+<p>void stopPlot();
+void restartPlot();
+void pausePlot(bool pausePlot);</p>
+<p>void selectFixedYAxis(int newYAxisIndex);</p>
+<p>void setPlotPickerMode(int mode);</p>
+<p>void setIterableCurves(bool itCurvs) {thisIterableCurves = itCurvs; qDebug() &lt;&lt; “signal it Called with bool:” &lt;&lt; itCurvs;};</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>void setSelectableCurves(bool selectCurvs) {thisSelectableCurves = selectCurvs; qDebug() &lt;&lt; “signal sel Called with bool:” &lt;&lt; selectCurvs;};</p>
 </dd>
 </dl>
 </div></blockquote>
 <hr class="docutils" />
 </section>
 <section id="cabyte">
-<span id="id16"></span><h4><code class="docutils literal notranslate"><span class="pre">caByte</span></code><a class="headerlink" href="#cabyte" title="Permalink to this heading">#</a></h4>
+<span id="id16"></span><h4><code class="docutils literal notranslate"><span class="pre">caByte</span></code><a class="headerlink" href="#cabyte" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Byte Monitor in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2189,7 +2399,7 @@ must be separated by a semicolon</p>
 <hr class="docutils" />
 </section>
 <section id="cacamera">
-<span id="id17"></span><h4><code class="docutils literal notranslate"><span class="pre">caCamera</span></code><a class="headerlink" href="#cacamera" title="Permalink to this heading">#</a></h4>
+<span id="id17"></span><h4><code class="docutils literal notranslate"><span class="pre">caCamera</span></code><a class="headerlink" href="#cacamera" title="Link to this heading">#</a></h4>
 <blockquote>
 <div><div class="line-block">
 <div class="line"><strong>Description:</strong>
@@ -2225,7 +2435,7 @@ YUV2B(y,cb,cr) &amp;= \frac{298.082*y}{256} &amp;+ \frac{561.412 * cb }{256} &am
 <dt><strong>maxLevel</strong></dt><dd><p>define in the widget a static max level. This can be changed during runtime.</p>
 </dd>
 <dt><strong>colorMode</strong></dt><dd><dl>
-<dt>Enum: how the data should be interpreted</dt><dd><table class="table">
+<dt>Enum: how the data should be interpreted</dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Enum value</p></td>
 <td><p>datatype</p></td>
@@ -2332,13 +2542,14 @@ YUV2B(y,cb,cr) &amp;= \frac{298.082*y}{256} &amp;+ \frac{561.412 * cb }{256} &am
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 </dl>
 </dd>
 <dt><strong>colorModeOverwriteChannel</strong></dt><dd><p>channel to select one of the color modes. The value of the channel has to be a string to let the widget seatch inside it enum list.
 This should be supported by the hardware IOC because this is hardware depended setting. If this is not available enable the combo boxes to do it manual</p>
 </dd>
-<dt><strong>packMode</strong></dt><dd><table class="table">
+<dt><strong>packMode</strong></dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>packNo</p></td>
 <td><p>no modification of the bit representation</p></td>
@@ -2354,6 +2565,7 @@ This should be supported by the hardware IOC because this is hardware depended s
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 <dt><strong>packingModeOverwriteChannel</strong></dt><dd><p>channel to select one of the packing modes. The value of the channel has to be a string to let the widget seatch inside it enum list.
 This should be supported by the hardware IOC because this is hardware depended setting. If this is not available enable the combo boxes to do it manual</p>
@@ -2361,7 +2573,7 @@ This should be supported by the hardware IOC because this is hardware depended s
 <dt><strong>showComboBoxes</strong></dt><dd><p>enable/disable the visibility for changing the data interpretation from the user side</p>
 </dd>
 <dt><strong>ColorMap</strong></dt><dd><dl>
-<dt>color map used to display experimental data to the 8Bit RGB world of a monitor</dt><dd><table class="table">
+<dt>color map used to display experimental data to the 8Bit RGB world of a monitor</dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Maps</p></td>
 <td><p>rough description</p></td>
@@ -2386,6 +2598,7 @@ This should be supported by the hardware IOC because this is hardware depended s
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 </dl>
 </dd>
@@ -2398,7 +2611,7 @@ This should be supported by the hardware IOC because this is hardware depended s
 <dt><strong>ROI_readChannels</strong></dt><dd><p>see the actual ROI_readChannelsList</p>
 </dd>
 <dt><strong>ROI_readmarkerType</strong></dt><dd><dl>
-<dt>define the cursor marker for the selection</dt><dd><table class="table">
+<dt>define the cursor marker for the selection</dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>cursor</p></td>
 <td><p>selection type</p></td>
@@ -2417,11 +2630,12 @@ This should be supported by the hardware IOC because this is hardware depended s
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 </dl>
 </dd>
 <dt><strong>ROI_readType</strong></dt><dd><dl>
-<dt>how the data from the channels are interpreted</dt><dd><table class="table">
+<dt>how the data from the channels are interpreted</dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p>description</p></td>
@@ -2443,6 +2657,7 @@ This should be supported by the hardware IOC because this is hardware depended s
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 </dl>
 </dd>
@@ -2451,7 +2666,7 @@ This should be supported by the hardware IOC because this is hardware depended s
 <dt><strong>ROI_writeChannels</strong></dt><dd><p>see the actual ROI_writeChannelsList</p>
 </dd>
 <dt><strong>ROI_writemarkerType</strong></dt><dd><dl>
-<dt>define the cursor marker for the selection</dt><dd><table class="table">
+<dt>define the cursor marker for the selection</dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>cursor</p></td>
 <td><p>selection type</p></td>
@@ -2470,11 +2685,12 @@ This should be supported by the hardware IOC because this is hardware depended s
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 </dl>
 </dd>
 <dt><strong>ROI_writeType</strong></dt><dd><dl>
-<dt>how the data is written to the channels</dt><dd><table class="table">
+<dt>how the data is written to the channels</dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>type</p></td>
 <td><p>description</p></td>
@@ -2496,6 +2712,7 @@ This should be supported by the hardware IOC because this is hardware depended s
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 </dl>
 </dd>
@@ -2508,7 +2725,7 @@ This should be supported by the hardware IOC because this is hardware depended s
 <hr class="docutils" />
 </section>
 <section id="cacalc">
-<span id="id18"></span><h4><code class="docutils literal notranslate"><span class="pre">caCalc</span></code><a class="headerlink" href="#cacalc" title="Permalink to this heading">#</a></h4>
+<span id="id18"></span><h4><code class="docutils literal notranslate"><span class="pre">caCalc</span></code><a class="headerlink" href="#cacalc" title="Link to this heading">#</a></h4>
 <blockquote>
 <div><dl>
 <dt><strong>Description:</strong></dt><dd><p>The idea of caCalc is to have a posibility to do calculations for supporting and optimizing the graphical interface. Thinks like complex visibility and specific data handling/distributions. It is <em>NOT</em> meant for a simple replacement for a real IOC.
@@ -2517,7 +2734,7 @@ The advantage of caCalc is to open a connection between channel data and data tr
 <dt><strong>variable</strong></dt><dd><p>this string generates a process wide variable (softPV) inside caQtDM. This contains the value of the calculation. If this string is empty there will be an automatic name generated, everytime the panels is opened. To guarantee that this name is unique caQtDM is using the UUID generator.</p>
 </dd>
 <dt><strong>variableType</strong></dt><dd><dl>
-<dt>this defines the output type of the softPV. The only decission you can made is sclar or vector.</dt><dd><table class="table">
+<dt>this defines the output type of the softPV. The only decission you can made is sclar or vector.</dt><dd><div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>scalar</p></td>
 <td><p>a single double</p></td>
@@ -2527,6 +2744,7 @@ The advantage of caCalc is to open a connection between channel data and data tr
 </tr>
 </tbody>
 </table>
+</div>
 </dd>
 </dl>
 </dd>
@@ -2575,7 +2793,7 @@ TriggerOneToZero  there will be only a signal when the value was rounded 1 and i
 <hr class="docutils" />
 </section>
 <section id="cawaterfallplot">
-<span id="id19"></span><h4><code class="docutils literal notranslate"><span class="pre">caWaterfallPlot</span></code><a class="headerlink" href="#cawaterfallplot" title="Permalink to this heading">#</a></h4>
+<span id="id19"></span><h4><code class="docutils literal notranslate"><span class="pre">caWaterfallPlot</span></code><a class="headerlink" href="#cawaterfallplot" title="Link to this heading">#</a></h4>
 <p>has no equivalent in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2584,7 +2802,7 @@ TriggerOneToZero  there will be only a signal when the value was rounded 1 and i
 <hr class="docutils" />
 </section>
 <section id="cabitnames">
-<span id="id20"></span><h4><code class="docutils literal notranslate"><span class="pre">caBitNames</span></code><a class="headerlink" href="#cabitnames" title="Permalink to this heading">#</a></h4>
+<span id="id20"></span><h4><code class="docutils literal notranslate"><span class="pre">caBitNames</span></code><a class="headerlink" href="#cabitnames" title="Link to this heading">#</a></h4>
 <p>has no equivalent in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2593,7 +2811,7 @@ TriggerOneToZero  there will be only a signal when the value was rounded 1 and i
 <hr class="docutils" />
 </section>
 <section id="catable">
-<span id="id21"></span><h4><code class="docutils literal notranslate"><span class="pre">caTable</span></code><a class="headerlink" href="#catable" title="Permalink to this heading">#</a></h4>
+<span id="id21"></span><h4><code class="docutils literal notranslate"><span class="pre">caTable</span></code><a class="headerlink" href="#catable" title="Link to this heading">#</a></h4>
 <p>has no equivalent in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2603,9 +2821,9 @@ TriggerOneToZero  there will be only a signal when the value was rounded 1 and i
 </section>
 <hr class="docutils" />
 <section id="all-graphical-objects">
-<h3>all graphical objects<a class="headerlink" href="#all-graphical-objects" title="Permalink to this heading">#</a></h3>
+<h3>all graphical objects<a class="headerlink" href="#all-graphical-objects" title="Link to this heading">#</a></h3>
 <section id="calabel">
-<span id="id22"></span><h4><code class="docutils literal notranslate"><span class="pre">caLabel</span></code><a class="headerlink" href="#calabel" title="Permalink to this heading">#</a></h4>
+<span id="id22"></span><h4><code class="docutils literal notranslate"><span class="pre">caLabel</span></code><a class="headerlink" href="#calabel" title="Link to this heading">#</a></h4>
 <p>is the equivalent of Text in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2614,7 +2832,7 @@ TriggerOneToZero  there will be only a signal when the value was rounded 1 and i
 <hr class="docutils" />
 </section>
 <section id="cagraphics">
-<span id="id23"></span><h4><code class="docutils literal notranslate"><span class="pre">caGraphics</span></code><a class="headerlink" href="#cagraphics" title="Permalink to this heading">#</a></h4>
+<span id="id23"></span><h4><code class="docutils literal notranslate"><span class="pre">caGraphics</span></code><a class="headerlink" href="#cagraphics" title="Link to this heading">#</a></h4>
 <p>is the equivalent of all primary graphical objects (like circles, lines,
 arcs, triangles, arrows, …) in MEDM.</p>
 <blockquote>
@@ -2624,8 +2842,8 @@ arcs, triangles, arrows, …) in MEDM.</p>
 <hr class="docutils" />
 </section>
 <section id="caframe">
-<span id="id24"></span><h4><code class="docutils literal notranslate"><span class="pre">caFrame</span></code><a class="headerlink" href="#caframe" title="Permalink to this heading">#</a></h4>
-<p>has no equivalent of Text in MEDM.</p>
+<span id="id24"></span><h4><code class="docutils literal notranslate"><span class="pre">caFrame</span></code><a class="headerlink" href="#caframe" title="Link to this heading">#</a></h4>
+<p>has no equivalent in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
 <strong>Description:</strong></p>
@@ -2633,13 +2851,13 @@ arcs, triangles, arrows, …) in MEDM.</p>
 <hr class="docutils" />
 </section>
 <section id="caimage">
-<span id="id25"></span><h4><code class="docutils literal notranslate"><span class="pre">caImage</span></code><a class="headerlink" href="#caimage" title="Permalink to this heading">#</a></h4>
+<span id="id25"></span><h4><code class="docutils literal notranslate"><span class="pre">caImage</span></code><a class="headerlink" href="#caimage" title="Link to this heading">#</a></h4>
 <p>is the equivalent of image in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
 <strong>Description:</strong>
 Qt supports many graphics format, try yours to see if it will be
-displayed. The most interesting format is however the animated GIF
+displayed. The most interesting format however is the animated GIF
 format. These GIF image files may include multiple frames,
 transparency, and most other features supported by the GIF format. If
 the GIF image file has multiple frames, caQtDM can choose to animate
@@ -2655,9 +2873,9 @@ numbers that are too high will use the last frame, and frame numbers
 that are too small will use the first frame. The Image will be black
 in EXECUTE mode if the Image Calc expression is invalid. The
 visibility of the Image is determined in the usual way if there is a
-channel specified. A multiple-frame Image even with no process
-variables specified for the Dynamic Attribute does update with some
-speed. Use the Image Calc expression and the process variables in the
+channel specified. A multiple-frame Image updates with some
+speed even with no process variables specified for the Dynamic Attribute.
+Use the Image Calc expression and the process variables in the
 Dynamic Attribute to specify when to display each color.</p>
 <p>There is an
 <a class="reference external" href="https://epics.anl.gov/extensions/index.php">EPICS extension</a>
@@ -2676,7 +2894,7 @@ edit images. For UNIX, the <a class="reference external" href="https://www.gimp.
 <hr class="docutils" />
 </section>
 <section id="capolyline">
-<span id="id26"></span><h4><code class="docutils literal notranslate"><span class="pre">caPolyLine</span></code><a class="headerlink" href="#capolyline" title="Permalink to this heading">#</a></h4>
+<span id="id26"></span><h4><code class="docutils literal notranslate"><span class="pre">caPolyLine</span></code><a class="headerlink" href="#capolyline" title="Link to this heading">#</a></h4>
 <p>is the equivalent of Polyline and Polygone in MEDM.</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2685,22 +2903,22 @@ edit images. For UNIX, the <a class="reference external" href="https://www.gimp.
 <hr class="docutils" />
 </section>
 <section id="cainclude">
-<span id="id27"></span><h4><code class="docutils literal notranslate"><span class="pre">caInclude</span></code><a class="headerlink" href="#cainclude" title="Permalink to this heading">#</a></h4>
+<span id="id27"></span><h4><code class="docutils literal notranslate"><span class="pre">caInclude</span></code><a class="headerlink" href="#cainclude" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Composite in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
-<strong>Description:</strong> Composite objects are created by the designer as a
+<strong>Description:</strong> caInclude objects are created by the designer as a
 new ui file to be included in a main file. For many operations they
 are treated as one object. Its uses also visibility (Color Mode,
 Visibility, Visibility Calc, Channels A-D) properties. One can
 specify <a class="reference external" href="macro-substitution">macros</a>. you can specify them by
-placing a semi-colon after the file name and entering them as on the
+placing a semicolon after the file name and entering them like on the
 command line.</p>
 </div></blockquote>
 <hr class="docutils" />
 </section>
 <section id="cadoubletabwidget">
-<span id="id28"></span><h4><code class="docutils literal notranslate"><span class="pre">caDoubleTabWidget</span></code><a class="headerlink" href="#cadoubletabwidget" title="Permalink to this heading">#</a></h4>
+<span id="id28"></span><h4><code class="docutils literal notranslate"><span class="pre">caDoubleTabWidget</span></code><a class="headerlink" href="#cadoubletabwidget" title="Link to this heading">#</a></h4>
 <p>has no equivalent in MEDM and is not a controls object</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2709,9 +2927,9 @@ command line.</p>
 </section>
 </section>
 <section id="all-controller-objects">
-<h3>all controller objects<a class="headerlink" href="#all-controller-objects" title="Permalink to this heading">#</a></h3>
+<h3>all controller objects<a class="headerlink" href="#all-controller-objects" title="Link to this heading">#</a></h3>
 <section id="canumeric">
-<span id="id29"></span><h4><code class="docutils literal notranslate"><span class="pre">caNumeric</span></code><a class="headerlink" href="#canumeric" title="Permalink to this heading">#</a></h4>
+<span id="id29"></span><h4><code class="docutils literal notranslate"><span class="pre">caNumeric</span></code><a class="headerlink" href="#canumeric" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Wheelswitch in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2719,9 +2937,9 @@ command line.</p>
 The WheelSwitch has arrow buttons above and below the digits that are
 used to change individual digits, and it also accepts keyboard input.
 The up and down arrow buttons are the main feature of the
-WheelSwitch. You click them to increment the digit. The arrow buttons
+WheelSwitch. You can click them to increment the digit. The arrow buttons
 can also be navigated and operated via the keyboard. You have to put
-the focus on the selected digit, which get surrounded with a red
+the focus on the selected digit, which gets outlined by a red
 color. The cursor has to remain inside the widget otherwise the focus
 will be lost. The up and down arrow keys increment or decrement the
 selected digit. Clicking on an arrow button will increment or
@@ -2732,7 +2950,7 @@ the input. Type Enter to finish the input.</p>
 <hr class="docutils" />
 </section>
 <section id="caapplynumeric">
-<span id="id30"></span><h4><code class="docutils literal notranslate"><span class="pre">caApplyNumeric</span></code><a class="headerlink" href="#caapplynumeric" title="Permalink to this heading">#</a></h4>
+<span id="id30"></span><h4><code class="docutils literal notranslate"><span class="pre">caApplyNumeric</span></code><a class="headerlink" href="#caapplynumeric" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Wheelswitch in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2743,8 +2961,8 @@ value will be applied when pressing the apply button.</p>
 <hr class="docutils" />
 </section>
 <section id="caslider">
-<span id="id31"></span><h4><code class="docutils literal notranslate"><span class="pre">caSlider</span></code><a class="headerlink" href="#caslider" title="Permalink to this heading">#</a></h4>
-<p>is the equivalent of the Wheelswitch in MEDM</p>
+<span id="id31"></span><h4><code class="docutils literal notranslate"><span class="pre">caSlider</span></code><a class="headerlink" href="#caslider" title="Link to this heading">#</a></h4>
+<p>has no equivalent in MEDM</p>
 <blockquote>
 <div><p>&lt;<a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
 <strong>Description:</strong></p>
@@ -2752,7 +2970,7 @@ value will be applied when pressing the apply button.</p>
 <hr class="docutils" />
 </section>
 <section id="cashellcommand">
-<span id="id32"></span><h4><code class="docutils literal notranslate"><span class="pre">caShellCommand</span></code><a class="headerlink" href="#cashellcommand" title="Permalink to this heading">#</a></h4>
+<span id="id32"></span><h4><code class="docutils literal notranslate"><span class="pre">caShellCommand</span></code><a class="headerlink" href="#cashellcommand" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Shell command in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2761,7 +2979,7 @@ value will be applied when pressing the apply button.</p>
 <hr class="docutils" />
 </section>
 <section id="camenu">
-<span id="id33"></span><h4><code class="docutils literal notranslate"><span class="pre">caMenu</span></code><a class="headerlink" href="#camenu" title="Permalink to this heading">#</a></h4>
+<span id="id33"></span><h4><code class="docutils literal notranslate"><span class="pre">caMenu</span></code><a class="headerlink" href="#camenu" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Menu in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2770,12 +2988,12 @@ value will be applied when pressing the apply button.</p>
 <hr class="docutils" />
 </section>
 <section id="cachoice">
-<span id="id34"></span><h4><code class="docutils literal notranslate"><span class="pre">caChoice</span></code><a class="headerlink" href="#cachoice" title="Permalink to this heading">#</a></h4>
+<span id="id34"></span><h4><code class="docutils literal notranslate"><span class="pre">caChoice</span></code><a class="headerlink" href="#cachoice" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Choice Button in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
 <strong>Description:</strong></p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>column</p></td>
 <td><p>The buttons are arranged in a row. (This appears to be
@@ -2793,16 +3011,17 @@ columns.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </div></blockquote>
 <hr class="docutils" />
 </section>
 <section id="carelateddisplay">
-<span id="id35"></span><h4><code class="docutils literal notranslate"><span class="pre">caRelatedDisplay</span></code><a class="headerlink" href="#carelateddisplay" title="Permalink to this heading">#</a></h4>
+<span id="id35"></span><h4><code class="docutils literal notranslate"><span class="pre">caRelatedDisplay</span></code><a class="headerlink" href="#carelateddisplay" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Related Display in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
 <strong>Description:</strong></p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>create new display</p></td>
 <td><p>Create a new display and leave the current one.</p></td>
@@ -2812,7 +3031,8 @@ columns.</p></td>
 </tr>
 </tbody>
 </table>
-<table class="table">
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>menu</p></td>
 <td><p>Use a pull down menu for the choices.</p></td>
@@ -2836,11 +3056,12 @@ in case the user cannot find them.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </div></blockquote>
 <hr class="docutils" />
 </section>
 <section id="catextentry">
-<span id="id36"></span><h4><code class="docutils literal notranslate"><span class="pre">caTextEntry</span></code><a class="headerlink" href="#catextentry" title="Permalink to this heading">#</a></h4>
+<span id="id36"></span><h4><code class="docutils literal notranslate"><span class="pre">caTextEntry</span></code><a class="headerlink" href="#catextentry" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Text Entry in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2849,7 +3070,7 @@ in case the user cannot find them.</p></td>
 <hr class="docutils" />
 </section>
 <section id="camessagebutton">
-<span id="id37"></span><h4><code class="docutils literal notranslate"><span class="pre">caMessageButton</span></code><a class="headerlink" href="#camessagebutton" title="Permalink to this heading">#</a></h4>
+<span id="id37"></span><h4><code class="docutils literal notranslate"><span class="pre">caMessageButton</span></code><a class="headerlink" href="#camessagebutton" title="Link to this heading">#</a></h4>
 <p>is the equivalent of the Message Button in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2858,7 +3079,7 @@ in case the user cannot find them.</p></td>
 <hr class="docutils" />
 </section>
 <section id="catogglebutton">
-<span id="id38"></span><h4><code class="docutils literal notranslate"><span class="pre">caToggleButton</span></code><a class="headerlink" href="#catogglebutton" title="Permalink to this heading">#</a></h4>
+<span id="id38"></span><h4><code class="docutils literal notranslate"><span class="pre">caToggleButton</span></code><a class="headerlink" href="#catogglebutton" title="Link to this heading">#</a></h4>
 <p>has no equivalent in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2867,7 +3088,7 @@ in case the user cannot find them.</p></td>
 <hr class="docutils" />
 </section>
 <section id="cascriptbutton">
-<span id="id39"></span><h4><code class="docutils literal notranslate"><span class="pre">caScriptButton</span></code><a class="headerlink" href="#cascriptbutton" title="Permalink to this heading">#</a></h4>
+<span id="id39"></span><h4><code class="docutils literal notranslate"><span class="pre">caScriptButton</span></code><a class="headerlink" href="#cascriptbutton" title="Link to this heading">#</a></h4>
 <p>has no equivalent in MEDM</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2876,7 +3097,7 @@ in case the user cannot find them.</p></td>
 <hr class="docutils" />
 </section>
 <section id="caspinbox">
-<span id="id40"></span><h4><code class="docutils literal notranslate"><span class="pre">caSpinBox</span></code><a class="headerlink" href="#caspinbox" title="Permalink to this heading">#</a></h4>
+<span id="id40"></span><h4><code class="docutils literal notranslate"><span class="pre">caSpinBox</span></code><a class="headerlink" href="#caspinbox" title="Link to this heading">#</a></h4>
 <p>represents a simplified Wheelswitch</p>
 <blockquote>
 <div><p><a class="reference internal" href="#geometry"><span class="std std-ref">Geometry</span></a> is used for any object
@@ -2886,33 +3107,23 @@ in case the user cannot find them.</p></td>
 </section>
 <hr class="docutils" />
 <section id="requirements">
-<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading">#</a></h3>
+<h3>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h3>
 <p>caQtDM requires that Qt, qwt and EPICS are installed. Actually the
-suported version are Qt4.6 and above, qwt6.0 and above. Qt5 needs at
+suported version are Qt4.6 and above, and qwt6.0 and above. Qt5 needs at
 least qwt6.1. The synoptic editor (designer) is part of Qt and the
-caQtDM objects are plugged into the designer. This help can be called
-from the designer by pressing F1 on any object and requires the
+caQtDM objects are plugged into the designer. The help page for this
+can be called from the designer by pressing F1 on any object and requires the
 assistant which is a part of Qt. caQtDM runs in principle on any
 plattform and has been tested for several linux flavours and also on
-Microsoft Windows. For MAC OS probably some work has to be done. Qt
-requires actually on linux normally X11 on Microsoft Windows the
-native window system.</p>
-<p>caQtDM requires that Qt, qwt and EPICS are installed. Actually the
-suported version are Qt4.6 and above, qwt6.0 and above. Qt5 needs at
-least qwt6.1. The synoptic editor (designer) is part of Qt and the
-caQtDM objects are plugged into the designer. This help can be called
-from the designer by pressing F1 on any object and requires the
-assistant which is a part of Qt. caQtDM runs in principle on any
-plattform and has been tested for several linux flavours and also on
-Microsoft Windows. For MAC OS probably some work has to be done. Qt
-requires actually on linux normally X11 on Microsoft Windows the
-native window system.</p>
+Microsoft Windows. For MAC OS some more work has to be done probably.
+Qt requires X11 forwarding on Linux and on Microsoft Windows it requires
+just the native window system.</p>
 </section>
 <section id="command-line-options">
-<h3>Command Line Options<a class="headerlink" href="#command-line-options" title="Permalink to this heading">#</a></h3>
-<p>caQtDM can be executed with the same options as MEDM; this to be
+<h3>Command Line Options<a class="headerlink" href="#command-line-options" title="Link to this heading">#</a></h3>
+<p>caQtDM can be executed with the same options as MEDM; this is to be
 compatible with its options. the following options are supported:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>option</p></th>
 <th class="head"><p>meaning</p></th>
@@ -2926,7 +3137,7 @@ compatible with its options. the following options are supported:</p>
 <td><p>has no effect (MEDM’s execute-only mode)</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-attach</span></code></p></td>
-<td><p>attach to a running caQtDM</p></td>
+<td><p>attach to a running caQtDM process</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-noMsg</span></code></p></td>
 <td><p>iconize the main window</p></td>
@@ -2974,17 +3185,18 @@ options for bsread:
 </tr>
 </tbody>
 </table>
+</div>
 <p>Parameters in square brackets [] are optional.</p>
 <section id="examples">
-<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h4>
+<h4>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h4>
 <p>Start up, performing <a class="reference internal" href="#macro-substitution"><span class="std std-ref">macro substitution</span></a> of all occurrences of <code class="docutils literal notranslate"><span class="pre">$(a)</span></code> and
 <code class="docutils literal notranslate"><span class="pre">$(c)</span></code> in the display file, <code class="docutils literal notranslate"><span class="pre">xyz.ui</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">caQtDM</span> <span class="o">-</span><span class="n">macro</span> <span class="s2">&quot;a=b,c=d&quot;</span> <span class="n">xyz</span><span class="o">.</span><span class="n">adl</span> <span class="o">&amp;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">caQtDM</span> <span class="o">-</span><span class="n">macro</span> <span class="s2">&quot;a=b,c=d&quot;</span> <span class="n">xyz</span><span class="o">.</span><span class="n">ui</span> <span class="o">&amp;</span>
 </pre></div>
 </div>
 <p>Start up in execute mode; resize the display window corresponding to
-abc.adl to 100 by 100 pixels and move it to the location, x = 100 and
-y = 100; and move the display window corresponding to def.adl to x =
+abc.ui to 100 by 100 pixels and move it to the location, x = 100 and
+y = 100; and move the display window corresponding to def.ui to x =
 400 and y = 150:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">caQtDM</span> <span class="o">-</span><span class="n">dg</span> <span class="mi">100</span><span class="n">x100</span><span class="o">+</span><span class="mi">100</span><span class="o">+</span><span class="mi">100</span> <span class="n">abc</span><span class="o">.</span><span class="n">ui</span> <span class="o">&amp;</span>
 </pre></div>
@@ -2992,11 +3204,11 @@ y = 100; and move the display window corresponding to def.adl to x =
 </section>
 </section>
 <section id="description-files">
-<h3>Description Files<a class="headerlink" href="#description-files" title="Permalink to this heading">#</a></h3>
+<h3>Description Files<a class="headerlink" href="#description-files" title="Link to this heading">#</a></h3>
 <p>With the Qt designer, you produce xml files with the extension <code class="docutils literal notranslate"><span class="pre">.ui</span></code>.
 These files are used as input for the synoptic viewer caQtDM. These
-xml ascii file can be edited by hand, but care has to be taken while
-caQtDM and Qt designer do not forgive any error. Qt designer will
+xml ascii file can be edited by hand, but care has to be taken because
+caQtDM and Qt designer do not tolerate any errors. Qt designer will
 however tell you at what line the mistake is produced.</p>
 <p>The files are normally loaded from the current directory and/or from
 the directory specified by the environment variable
@@ -3004,33 +3216,34 @@ CAQTDM_DISPLAY_PATH. The directories are specified with the separator
 <code class="docutils literal notranslate"><span class="pre">:</span></code> for linux and <code class="docutils literal notranslate"><span class="pre">;</span></code> for microsoft windows.</p>
 </section>
 <section id="connection-problems-and-access-rights">
-<h3>Connection Problems and Access Rights<a class="headerlink" href="#connection-problems-and-access-rights" title="Permalink to this heading">#</a></h3>
-<p>When caQtDM cannot connect the specified process variable normally white
-colors will be drawn. A list of unconnected process variables can be
-called through the menu of the main window of caQtDM. When a process
-variable is not writeable the cursor will change to some special sign.</p>
+<h3>Connection Problems and Access Rights<a class="headerlink" href="#connection-problems-and-access-rights" title="Link to this heading">#</a></h3>
+<p>Normally when caQtDM cannot connect the specified process variable, white
+colors will be drawn where the process variable is used. A list of
+unconnected process variables can be called through the menu of the
+main window of caQtDM. When a process variable is not writeable the
+cursor will change to some special sign.</p>
 </section>
 <section id="fonts">
-<h3>Fonts<a class="headerlink" href="#fonts" title="Permalink to this heading">#</a></h3>
-<p>The custom widgets make extensively use of the Qt font <em>“Lucida Sans
-Typewriter”</em>. If this font does not exist in some cases it will fall
+<h3>Fonts<a class="headerlink" href="#fonts" title="Link to this heading">#</a></h3>
+<p>The custom widgets make extensive use of the Qt font <em>“Lucida Sans
+Typewriter”</em>. In some cases where this font does not exist it will fall
 back to a font called “Monospace”. However the “Lucida” font is really
 the appropriated font to display numbers and it is warmly advised to
 have this font installed.</p>
 </section>
 <section id="general-properties">
-<h3>General Properties<a class="headerlink" href="#general-properties" title="Permalink to this heading">#</a></h3>
+<h3>General Properties<a class="headerlink" href="#general-properties" title="Link to this heading">#</a></h3>
 <p class="rubric" id="geometry">Geometry</p>
 <div class="docutils container">
 <p>All the widgets have geometry properties that can be set by the
 designer; these properties are normally at the top of the property
 sheet:</p>
 </div>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>X Position</p></td>
 <td><p>x coordinate of the top left corner of the
-objectrelative to the display.</p></td>
+object relative to the display.</p></td>
 </tr>
 <tr class="row-even"><td><p>Y Position</p></td>
 <td><p>y coordinate of the top left corner of the object
@@ -3044,12 +3257,13 @@ relative to the display.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p class="rubric" id="visibility">Visibility</p>
 <div class="docutils container">
 <p>For the <a class="reference external" href="#graphics">graphical objects</a> except <a class="reference internal" href="#cadoubletabwidget"><span class="std std-ref">caDoubleTabWidget</span></a>
 which is not a control widget</p>
 </div>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Color Mode</p></td>
 <td><p>Color Mode for the object. only for
@@ -3090,9 +3304,10 @@ replaced by the value of this process variable.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>See <a class="reference internal" href="#calc-expressions"><span class="std std-ref">CALC Expressions</span></a> for more details.</p>
 <p class="rubric" id="color-mode">Color Mode</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>static</p></td>
 <td><p>Show the object in its normal colors.</p></td>
@@ -3107,8 +3322,9 @@ record, for example).</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p class="rubric" id="visibility-mode">Visibility Mode</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>static</p></td>
 <td><p>The object is displayed always. Updating objects are
@@ -3119,20 +3335,22 @@ always above non-updating objects.</p></td>
 not zero.</p></td>
 </tr>
 <tr class="row-odd"><td><p>if zero</p></td>
-<td><p>The object is displayed if the object is zero.</p></td>
+<td><p>The object is displayed if the process variable is
+zero.</p></td>
 </tr>
 <tr class="row-even"><td><p>calc</p></td>
 <td><p>Use calc expression to determine the visability.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p class="rubric" id="direction">Direction</p>
 <div class="docutils container">
 <p>For the <a class="reference external" href="#BarMonitor">Bar Monitor</a> , <a class="reference external" href="#ByteMonitor">Byte
 Monitor</a> , <a class="reference external" href="#ScaleIndicator">Scale Monitor</a> ,
 and <a class="reference external" href="#Slider">Slider</a></p>
 </div>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>up</p></td>
 <td><p>Direction for the object is up or up/down.</p></td>
@@ -3141,21 +3359,22 @@ and <a class="reference external" href="#Slider">Slider</a></p>
 <td><p>Direction for the object is right or left/right.</p></td>
 </tr>
 <tr class="row-odd"><td><p>down</p></td>
-<td><p>Only used in the Bar Monitor. Otherwise, MEDM treats this
+<td><p>Only used in the Bar Monitor. Otherwise, caQtDM treats this
 the same as up.</p></td>
 </tr>
 <tr class="row-even"><td><p>left</p></td>
-<td><p>Only used in the Bar Monitor. Otherwise, MEDM treats this
+<td><p>Only used in the Bar Monitor. Otherwise, caQtDM treats this
 the same as right.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p class="rubric" id="label">Label</p>
 <div class="docutils container">
 <p>For the <a class="reference external" href="#Meter">Meter</a>, <a class="reference external" href="#BarMonitor">Bar Monitor</a>, <a class="reference external" href="#ScaleIndicator">Scale
 Monitor</a>, and <a class="reference external" href="#Slider">Slider</a>.</p>
 </div>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>none</p></td>
 <td><p>No extra features, except the limits are shown for
@@ -3166,60 +3385,62 @@ show.</p></td>
 <tr class="row-even"><td><p>no decorations</p></td>
 <td><p>Same as none except for the Bar Monitor. For the
 Bar Monitor only the background and the bar show.
-This allows making bar graphs in MEDM.</p></td>
+This allows making bar graphs in caQtDM.</p></td>
 </tr>
 <tr class="row-odd"><td><p>outline</p></td>
 <td><p>Show limits.</p></td>
 </tr>
 <tr class="row-even"><td><p>limits</p></td>
-<td><p>Show limits and a box for the value (except there
-is no box for the Slider).</p></td>
+<td><p>Show limits and a box for the value (except for
+the Slider, this does not have a box).</p></td>
 </tr>
 <tr class="row-odd"><td><p>channel</p></td>
-<td><p>Show limits, a box for the value, and the process
-variable name (except there is no box for the
-Slider).</p></td>
+<td><p>Show limits and a box for the value and the process
+variable name (except for the Slider, this does not
+have a box).</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p class="rubric" id="text-align">Text Align</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>horiz. left</p></td>
-<td><p>Align the text at the top left of the object.
+<td><p>Align the text with the top left of the object.
 (Capital letters will line up with the top of the
-object, and the text will start at the left of
-the object.)</p></td>
+object, and the text will start at the left side
+of the object.)</p></td>
 </tr>
 <tr class="row-even"><td><p>horiz. centered</p></td>
-<td><p>Align the text at the top center of the object.
+<td><p>Align the text with the top center of the object.
 (Capital letters will line up with the top of the
 object, and the text will be horizontally
 centered in the object.)</p></td>
 </tr>
 <tr class="row-odd"><td><p>horiz. right</p></td>
-<td><p>Align the text at the top right of the object.
+<td><p>Align the text with the top right of the object.
 (Capital letters will line up with the top of the
-object, and the text will end at the right of the
-object.)</p></td>
+object, and the text will end at the right side of
+the object.)</p></td>
 </tr>
 <tr class="row-even"><td><p>vert. top</p></td>
-<td><p>No longer used. In <code class="docutils literal notranslate"><span class="pre">.adl</span></code> files, MEDM treats
-this the same as horiz. left (as it used to) for
+<td><p>No longer used. In <code class="docutils literal notranslate"><span class="pre">.ui</span></code> files, caQtDM treats
+this the same as horiz. left (as MEDM used to) for
 backward compatibility.</p></td>
 </tr>
 <tr class="row-odd"><td><p>vert. centered</p></td>
-<td><p>No longer used. In <code class="docutils literal notranslate"><span class="pre">.adl</span></code> files, MEDM treats
-this the same as horiz. center (as it used to)
+<td><p>No longer used. In <code class="docutils literal notranslate"><span class="pre">.ui</span></code> files, caQtDM treats
+this the same as horiz. center (as MEDM used to)
 for backward compatibility.</p></td>
 </tr>
 <tr class="row-even"><td><p>vert. bottom</p></td>
-<td><p>No longer used. In <code class="docutils literal notranslate"><span class="pre">.adl</span></code> files, MEDM treats
-this the same as horiz. right (as it used to)
+<td><p>No longer used. In <code class="docutils literal notranslate"><span class="pre">.ui</span></code> files, caQtDM treats
+this the same as horiz. right (as MEDM used to)
 for backward compatibility.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p class="rubric" id="text-format">Text Format</p>
 <div class="docutils container">
 <p>For the <a class="reference external" href="#TextEntry">Text Entry</a> and <a class="reference external" href="#TextIndicator">Text
@@ -3235,12 +3456,12 @@ synoptic display is reloaded.</p>
 <div class="docutils container">
 <p>CALC expressions are used to determine visibility for graphical
 objects and to determine the frame number for the <a class="reference internal" href="#caimage"><span class="std std-ref">caImage</span></a>,
-which also has a Dynamic Attribute. For
-visibility, the expression should return 0 for False, and anything
-else for True. For the frame number for the Image it should return
-a number, which will be rounded to the nearest integer. Frame
-numbers start with 0. The complete syntax of the CALC expression
-is described in detail in the Record Reference Manual found in the
+which also has a Dynamic Attribute. For visibility, the expression
+should return 0 for False, and anything else for True.
+For the frame number for the Image it should return a number, which
+will be rounded to the nearest integer. Frame numbers start with 0.
+The complete syntax of the CALC expression is described in detail
+in the Record Reference Manual found in the
 <a class="reference external" href="https://www.aps.anl.gov/epics">Epics Documentation</a>
 under IOC software for any version of EPICS base, through at least
 Base 3.13. It is a case-independent C expression that can include
@@ -3249,7 +3470,7 @@ SIN, SINH, ASIN, COS, COSH, ACOS, TAN, TANH, and ATAN, as well as
 the usual C operators, except that != is replaced by # and == is
 replaced by =. The letters A-L obtain their values from the
 Channels A-D and are replaced as follows.</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>A</p></td>
 <td><p>The value of Channel A.</p></td>
@@ -3290,9 +3511,10 @@ Channels A-D and are replaced as follows.</p>
 </tbody>
 </table>
 </div>
+</div>
 <div class="docutils container">
 <p>Examples are:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>expression</p></th>
 <th class="head"><p>Show the object whenever the …</p></th>
@@ -3323,32 +3545,34 @@ Channels A-D and are replaced as follows.</p>
 </tbody>
 </table>
 </div>
+</div>
 <section id="macro-substitution">
-<span id="id42"></span><h4>Macro Substitution<a class="headerlink" href="#macro-substitution" title="Permalink to this heading">#</a></h4>
-<p>Strings of the form $(name) in a <code class="docutils literal notranslate"><span class="pre">.adl</span></code> file can be replaced by some
+<span id="id42"></span><h4>Macro Substitution<a class="headerlink" href="#macro-substitution" title="Link to this heading">#</a></h4>
+<p>Strings with the form $(name) in a <code class="docutils literal notranslate"><span class="pre">.ui</span></code> file can be replaced by some
 other string, both on the command line and when calling a <a class="reference external" href="#RelatedDisplay">related
 display</a>. Specific directions for each of these
 cases are given in the correspoonding sections of the manual. In
-general, there is an argument string of the form
-<code class="docutils literal notranslate"><span class="pre">name1=value1[,name2=value2]...</span></code>.  All occurrences of “$(name1)” in the
-<code class="docutils literal notranslate"><span class="pre">.adl</span></code> file are replaced with “value1”, then all occurences of $(name2)
+general, there is an argument string with the form
+<code class="docutils literal notranslate"><span class="pre">name1=value1[,name2=value2]...</span></code>.  All occurrences of “(name1)” in the
+<code class="docutils literal notranslate"><span class="pre">.ui</span></code> file are replaced with “value1”, then all occurences of $(name2)
 are replaced by value2, <em>etc</em>. The substitition is recursive; that is,
 if value1 contains an occurrence of $(name2), then when name2=value2
 is processed, that occurrence will be replaced by value2.</p>
 </section>
 <section id="drag-and-drop">
-<h4>Drag-And-Drop<a class="headerlink" href="#drag-and-drop" title="Permalink to this heading">#</a></h4>
-<p>you may drag and drop an item to some destination, however there is no
-drag and drop possible between Qt and X11. When using KDE you may drag
-and drop to a konsole. For simple cut and paste, you can call the pv info
-box and get the variable you want to paste.</p>
+<h4>Drag-And-Drop<a class="headerlink" href="#drag-and-drop" title="Link to this heading">#</a></h4>
+<p>You may drag and drop an item (such as a pv name aquired through get-info)
+to some destination, however there is no drag and drop possibility between
+Qt and X11. When using KDE you may drag and drop to a console. To simply
+copy and paste you can call the pv info box and get the variable you want
+to paste.</p>
 </section>
 <section id="main-window">
-<h4>Main Window<a class="headerlink" href="#main-window" title="Permalink to this heading">#</a></h4>
-<p>The main window of caQTDM present messages, a menu bar and a status
+<h4>Main Window<a class="headerlink" href="#main-window" title="Link to this heading">#</a></h4>
+<p>The main window of caQTDM presents messages, a menu bar and a status
 bar.
 The menu bar has the following items:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>Menu</p></td>
 <td><p>Open File</p></td>
@@ -3375,7 +3599,7 @@ and author</p></td>
 <td></td>
 <td><p>will display a list of unconnected PV’s</p></td>
 </tr>
-<tr class="row-even"><td><p>UpdataType</p></td>
+<tr class="row-even"><td><p>UpdateType</p></td>
 <td><p>Direct</p></td>
 <td><p>When caQtDM is in this mode, all the
 monitors will be displayed as soon as
@@ -3384,33 +3608,33 @@ they come</p></td>
 <tr class="row-odd"><td></td>
 <td><p>Timed</p></td>
 <td><p>When caQtDM is in this mode, all the
-monitors will be displayed will be
-displayed with a highest rate of 5Hz,
-however this rate can be set on a
-individual base by a JSON string after
-the channel (in designer) with the
-following syntax
-channel{“caqtdm_monitor”:{“maxdisplayrate”:20}},
-where you can choose your display rate.</p></td>
+monitors will be displayed with a maximum
+rate of 5Hz, however this rate can be set
+individually by a JSON string after the
+channel (edited in the designer) with the
+following syntax, x being the pv name:
+x.{“caqtdm_monitor”:{“maxdisplayrate”:20}}
+Here you can choose your display rate.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>The Status bar will display the following information: memory used by
 caQtDM, the number of connected and unconnected PV’s, the number of
 monitors per second, the number of displays per second and the monitor
 with the highest rate.</p>
 </section>
 <section id="context-menu">
-<span id="id43"></span><h4>Context Menu<a class="headerlink" href="#context-menu" title="Permalink to this heading">#</a></h4>
+<span id="id43"></span><h4>Context Menu<a class="headerlink" href="#context-menu" title="Link to this heading">#</a></h4>
 <p>By pressing the right mouse button over an object you will get a context
 menu. This menu contains at least an item called PV info in order to get
 information about all the process variables associated with that object.
-For some other objects you will find other items for example for
-changing axes of the <a class="reference internal" href="#castripplot"><span class="std std-ref">caStripPlot</span></a> and <a class="reference internal" href="#cacartesianplot"><span class="std std-ref">caCartesianPlot</span></a> or for interaction
+For some objects you will find other items for example for changing the
+axes of the <a class="reference internal" href="#castripplot"><span class="std std-ref">caStripPlot</span></a> and <a class="reference internal" href="#cacartesianplot"><span class="std std-ref">caCartesianPlot</span></a> or for interaction
 with <a class="reference internal" href="#cacamera"><span class="std std-ref">caCamera</span></a>.</p>
 </section>
 <section id="context-menu-customization">
-<span id="id44"></span><h4>Context Menu Customization<a class="headerlink" href="#context-menu-customization" title="Permalink to this heading">#</a></h4>
+<span id="id44"></span><h4>Context Menu Customization<a class="headerlink" href="#context-menu-customization" title="Link to this heading">#</a></h4>
 <p>The context menu can be configured by adding other items with their
 actions. This configuration is specified in the <code class="docutils literal notranslate"><span class="pre">CAQTDM_EXEC_LIST</span></code>
 <a class="reference internal" href="#env-var"><span class="std std-ref">environment variable</span></a>. This variable is of the form:</p>
@@ -3418,12 +3642,12 @@ actions. This configuration is specified in the <code class="docutils literal no
 </pre></div>
 </div>
 <p>The items between colons represent each
-menu item. All of the characters up to the first semi-colon in each
+menu item. All of the characters up to the first semicolon in each
 item are the text that appears on the menu. The remaining characters
 represent the system command that will be executed when the item is
 selected. The system command can include the following special
 characters:</p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p>&amp;P</p></td>
 <td><p>The process variable will be automatically taken from the
@@ -3437,10 +3661,11 @@ object.</p></td>
 </tr>
 <tr class="row-even"><td><p>&amp;X</p></td>
 <td><p>The X window id of the ui screen. This can be used with
-commands like Xwd, for example. only for linux</p></td>
+commands like Xwd, for example. THis is only for linux.</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Examples are:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">CAQTDM_EXEC_LIST</span><span class="o">=</span><span class="s1">&#39;Probe;probe &amp;P &amp;:PV Name(s);echo &amp;P&#39;</span>
 <span class="n">export</span> <span class="n">MEDM_EXEC_LIST</span><span class="o">=</span><span class="s1">&#39;Full Name;echo &amp;A:Short Name;echo &amp;T&#39;</span>
@@ -3450,29 +3675,69 @@ commands like Xwd, for example. only for linux</p></td>
 </div>
 </section>
 <section id="help">
-<h4>Help<a class="headerlink" href="#help" title="Permalink to this heading">#</a></h4>
+<h4>Help<a class="headerlink" href="#help" title="Link to this heading">#</a></h4>
 <p>You may obtain help for any widget in the designer by pressing F1. For
 the caQtDM custom widgets the help file generated from this html file
 should be registered by the Qt assistant.</p>
 </section>
 <section id="resizing-displays">
-<h4>Resizing Displays<a class="headerlink" href="#resizing-displays" title="Permalink to this heading">#</a></h4>
-<p>Displays With caQtDM you can resize the synoptic display windows
-without using Qt layouts. You can build a display normally and
-everything will be resized when you resize the window. Furthermore you
-could try Qt designer layouts (for experts only)</p>
+<h4>Resizing Displays<a class="headerlink" href="#resizing-displays" title="Link to this heading">#</a></h4>
+<p>In caQtDM you can resize the synoptic display windows without using
+Qt layouts. You can build a display normally and everything will be
+resized when you resize the window. Furthermore, you could try
+Qt designer layouts (for experts only)</p>
 </section>
 <section id="printing">
-<h4>Printing<a class="headerlink" href="#printing" title="Permalink to this heading">#</a></h4>
+<h4>Printing<a class="headerlink" href="#printing" title="Link to this heading">#</a></h4>
 <p>By pressing the right mouse button on the background of your synoptic
-display you may get a context menu with the item “Print”. Normally you
+display you can get a context menu with the item “Print”. Normally you
 should get a print dialog.</p>
 </section>
+<section id="environment-plugin">
+<h4>Environment Plugin<a class="headerlink" href="#environment-plugin" title="Link to this heading">#</a></h4>
+<p>There is an environment plugin which allows to get environment variables just like PVs.
+To use this plugin, the value of “channel” in the designer has to be set to “environment://yourEnvironmentVar”
+Then caQtDM will get the environment variable after “environment://”, in this case “yourEnvironmentVar” and return it just like any other PV.</p>
+</section>
+<section id="unit-replacements">
+<h4>Unit Replacements<a class="headerlink" href="#unit-replacements" title="Link to this heading">#</a></h4>
+<p>When displaying values with units, it can happen that some characters cannot be drawn correctly,
+thus generating faulty units. This can be due to special display settings or configuration on the
+client, like a special linux build or manual font settings, leading to characters being drawn incorrectly.
+There could also be limitations to which characters can be handled by EPICS.
+To address this issue, unit replacements can be done by the user. This means, all unit strings will be
+scanned for the given source characters ( or -sequences) and every occurrence will be replaced by the
+given replacement characters ( or -sequence). Unit replacements do not affect the UI file or EPICS data
+and are purely visible and around for the caQtDM process that was started with them.
+To start a caQtDM process with custom unit replacements, the following environment variable has to be set with the wanted replacements:
+CAQTDM_CUSTOM_UNIT_REPLACEMENTS
+The syntax for the custom unit replacements is as follows:
+The characters are written either in utf-8 coded characters or as a hexadecimal or decimal code for the character in utf-8 coding.
+Hexadeciaml codes need to start with “0x”, caQtDM will try to parse all other characters first as a decimal code, if they are not purely numerical it will
+interpret them as utf-8 coded characters. Multiple characters that should be treated as one string have to be seperated by comma (,). If you use utf-8 coded characters,
+you can also just write them as a string without the need for commas. so “hi” would be written as “0x48,0x69”, or simply just “hi”.
+Double quotes are possible but removed by caQtDM when parsing the environment variable, single quotes are treated literally as characters to replace, so don’t use them to encapsulate.
+You have to first write the source characters you want to replace, then an equal sign (=) and finally the replacement characters that should be drawn instead. To set multiple
+character replacements, seperate them by semicolon (;). Parts that dont contain an equal sign but are seperated from other parts with semicolon are ignored. All put together this would be the structure:
+CAQTDM_CUSTOM_UNIT_REPLACEMENTS={sourceCharacters}={replacementCharacters};{anotherReplacement}
+An example (that doesnt make much sense but displays many possibilities) would be:
+CAQTDM_CUSTOM_UNIT_REPLACEMENTS=charsToReplace=charsToUse;0x48,0x68=bye;charsWithHex,0x4f=something;?=o
+It can be seen that all combinations of strings, hex- and deciaml character codes are possible to form a source or replacement string.
+All replacements will be done sequentially, with the leftmost replacements being done first. Therefore, it can also be possible, that later replacements replace characters in a string
+that has already been replaced before by another replacements.
+When doing custom unit replacements, always consider that your replacements might not be done to the original string from EPICS, but on the already
+processed string with the default unit replacements. To see how they are implemented, you might want to check out teh first few lines in caQtDM_Lib/src/mutexKnobData.cpp
+There are already some default unit replacements that were introduced because common systems had difficulties displaying widely-used characters.
+Those unit replacements always take place before custom unit replacements, you can disable them by setting the following environment variable to “false”:
+CAQTDM_DEFAULT_UNIT_REPLACEMENTS
+It is not recommended to disable them, as they are tested on all common systems and should be working with most clients, however disabling might help
+in some edge cases.</p>
+</section>
 <section id="environment-variables">
-<span id="env-var"></span><h4>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this heading">#</a></h4>
+<span id="env-var"></span><h4>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading">#</a></h4>
 <p>caQtDM uses the following environment variables:</p>
 <p><strong>form QT and EPICS Library:</strong></p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">QT_PLUGIN_PATH</span></code></p></td>
 <td><p>to find the plugins of qt and others</p></td>
@@ -3485,8 +3750,9 @@ should get a print dialog.</p>
 </tr>
 </tbody>
 </table>
+</div>
 <p><strong>from caQtDM:</strong></p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_DISPLAY_PATH</span></code></p></td>
 <td><p>A colon-separated (semi-colon-separated on
@@ -3506,7 +3772,7 @@ the <a class="reference internal" href="#context-menu-customization"><span class
 the format.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MEDM_EXEC_LIST</span></code></p></td>
-<td><p>for backwards……</p></td>
+<td><p>for backwards compatability</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_LAUNCHFILE</span></code></p></td>
 <td><p>Enviroment file for Mobile devices</p></td>
@@ -3539,32 +3805,85 @@ characters or hexadecimal / decimal utf-8
 character codes, seperated by (,) , (=)
 and (;).</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_SCREENSHOT_NAME</span></code></p></td>
+<td><p>If caQtDM was started with -print this will
+specify the name of the screenshot file</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_SUPPRESS_UPDATES_ONLOAD</span></code></p></td>
+<td><p>Disables widgets from being updated while a
+file is being opened. This can reduce load
+times of big panels by more than 50%.
+Values: “TRUE”, “FALSE” , without quotes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_CREATE_LOGFILE</span></code></p></td>
+<td><p>If set to “TRUE”, caQtDM will create a logfile
+containing all of the input from the message
+window. If caQtDM exits successfully, this
+file gets deleted after termination.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_LOGFILE_PATH</span></code></p></td>
+<td><p>This specifies the path where the logfile, if
+logging is active, will be stored.</p></td>
+</tr>
 </tbody>
 </table>
+</div>
 <p><strong>from plugins:</strong></p>
-<table class="table">
+<div class="pst-scrollable-table-container"><table class="table">
 <tbody>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BSREAD_DISPATCHER</span></code></p></td>
 <td><p>point the bsread plugin to the dispatcher</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BSREAD_ZMQ_CONNECTION_TYPE</span></code></p></td>
-<td><p>control the connection type of the bsread plugin</p></td>
+<td><p>control the connection type of the bsread plugin
+Can be set to “pub_sub”, else default “push_pull” is used</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BSREAD_ZMQ_ADDR_LIST</span></code></p></td>
-<td><p>point the bsread plugin static sources</p></td>
+<td><p>point the bsread plugin to static sources</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_ARCHIVERSF_URL</span></code></p></td>
-<td><p>point the archiver plugin to a different archiver backend</p></td>
+<td><p>point the archiveSF plugin to a different archiver backend</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_ARCHIVEHTTP_URL</span></code></p></td>
+<td><p>point the archiveHTTP plugin to a different backend</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_ARCHIVEHTTP_DEFAULT_BACKEND</span></code></p></td>
+<td><p>Specify the “backend” parameter for archiver api queries,
+which is used if none is set in the widget.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_ARCHIVEHTTP_OVERRIDE_BACKEND</span></code></p></td>
+<td><p>Overrides any other definition of the “backend” paramter
+for queries, including dynamic properties in the widget.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_ARCHIVEHTTP_APIPATH_BINNED</span></code></p></td>
+<td><p>Overwrite the default api path for binned data.
+Needs to be in the format: /path/to/binned</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_ARCHIVEHTTP_APIPATH_RAW</span></code></p></td>
+<td><p>Overwrite the default api path for raw data (events).
+Needs to be in the format: /path/to/events</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_ARCHIVEHTTP_APIPATH_LIST</span></code></p></td>
+<td><p>Overwrite the default path to fetch the list of available
+backends. Needs to be in the format: /path/to/backend/list</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_OPTIMIZE_EPICS3CONNECTIONS</span></code></p></td>
+<td><p>Disable Epics3 connections when tabwidget is not active
+Set to “TRUE” to activate</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CAQTDM_MODBUS_DATABASE</span></code></p></td>
+<td><p>Database to use for the modbus plugin</p></td>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 </section>
 </div>
 </section>
 <section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">#</a></h1>
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">#</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
@@ -3577,97 +3896,99 @@ and (;).</p></td>
               
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer d-print-none">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#about-this-manual">About this manual</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#introduction">Introduction</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#qt-designer-editor">Qt Designer: editor</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#install">Install</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#example-build-settings-for-debian-12">Example build settings for Debian 12</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#example-build-settings-for-rocky-linux-9">Example build settings for Rocky Linux 9</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#development-history">Development history</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caqtdm-custom-widgets">caQtDM Custom Widgets</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#all-monitor-objects">all monitor objects</a><ul class="nav section-nav flex-column">
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#calineedit-the-most-used-graphical-object-for-data-monitoring"><code class="docutils literal notranslate"><span class="pre">caLineEdit</span></code>, the most used graphical object for data monitoring</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cathermo"><code class="docutils literal notranslate"><span class="pre">caThermo</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caled"><code class="docutils literal notranslate"><span class="pre">caLed</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#calineargauge"><code class="docutils literal notranslate"><span class="pre">caLinearGauge</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacirculargauge"><code class="docutils literal notranslate"><span class="pre">caCircularGauge</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacartesianplot"><code class="docutils literal notranslate"><span class="pre">caCartesianPlot</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#castripplot"><code class="docutils literal notranslate"><span class="pre">caStripPlot</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cabyte"><code class="docutils literal notranslate"><span class="pre">caByte</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacamera"><code class="docutils literal notranslate"><span class="pre">caCamera</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cacalc"><code class="docutils literal notranslate"><span class="pre">caCalc</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cawaterfallplot"><code class="docutils literal notranslate"><span class="pre">caWaterfallPlot</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cabitnames"><code class="docutils literal notranslate"><span class="pre">caBitNames</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#catable"><code class="docutils literal notranslate"><span class="pre">caTable</span></code></a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#about-this-manual">About this manual</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#introduction">Introduction</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#qt-designer-editor">Qt Designer: editor</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#install">Install</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#example-build-settings-for-debian-12">Example build settings for Debian 12</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#example-build-settings-for-rocky-linux-9">Example build settings for Rocky Linux 9</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#development-history">Development history</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#caqtdm-custom-widgets">caQtDM Custom Widgets</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#all-monitor-objects">all monitor objects</a><ul class="nav section-nav flex-column">
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#calineedit-the-most-used-graphical-object-for-data-monitoring"><code class="docutils literal notranslate"><span class="pre">caLineEdit</span></code>, the most used graphical object for data monitoring</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cathermo"><code class="docutils literal notranslate"><span class="pre">caThermo</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#caled"><code class="docutils literal notranslate"><span class="pre">caLed</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#calineargauge"><code class="docutils literal notranslate"><span class="pre">caLinearGauge</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cacirculargauge"><code class="docutils literal notranslate"><span class="pre">caCircularGauge</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cacartesianplot"><code class="docutils literal notranslate"><span class="pre">caCartesianPlot</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#castripplot"><code class="docutils literal notranslate"><span class="pre">caStripPlot</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cabyte"><code class="docutils literal notranslate"><span class="pre">caByte</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cacamera"><code class="docutils literal notranslate"><span class="pre">caCamera</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cacalc"><code class="docutils literal notranslate"><span class="pre">caCalc</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cawaterfallplot"><code class="docutils literal notranslate"><span class="pre">caWaterfallPlot</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cabitnames"><code class="docutils literal notranslate"><span class="pre">caBitNames</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#catable"><code class="docutils literal notranslate"><span class="pre">caTable</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#all-graphical-objects">all graphical objects</a><ul class="nav section-nav flex-column">
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#calabel"><code class="docutils literal notranslate"><span class="pre">caLabel</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cagraphics"><code class="docutils literal notranslate"><span class="pre">caGraphics</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caframe"><code class="docutils literal notranslate"><span class="pre">caFrame</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caimage"><code class="docutils literal notranslate"><span class="pre">caImage</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#capolyline"><code class="docutils literal notranslate"><span class="pre">caPolyLine</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cainclude"><code class="docutils literal notranslate"><span class="pre">caInclude</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cadoubletabwidget"><code class="docutils literal notranslate"><span class="pre">caDoubleTabWidget</span></code></a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#all-graphical-objects">all graphical objects</a><ul class="nav section-nav flex-column">
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#calabel"><code class="docutils literal notranslate"><span class="pre">caLabel</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cagraphics"><code class="docutils literal notranslate"><span class="pre">caGraphics</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#caframe"><code class="docutils literal notranslate"><span class="pre">caFrame</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#caimage"><code class="docutils literal notranslate"><span class="pre">caImage</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#capolyline"><code class="docutils literal notranslate"><span class="pre">caPolyLine</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cainclude"><code class="docutils literal notranslate"><span class="pre">caInclude</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cadoubletabwidget"><code class="docutils literal notranslate"><span class="pre">caDoubleTabWidget</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#all-controller-objects">all controller objects</a><ul class="nav section-nav flex-column">
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#canumeric"><code class="docutils literal notranslate"><span class="pre">caNumeric</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caapplynumeric"><code class="docutils literal notranslate"><span class="pre">caApplyNumeric</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caslider"><code class="docutils literal notranslate"><span class="pre">caSlider</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cashellcommand"><code class="docutils literal notranslate"><span class="pre">caShellCommand</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#camenu"><code class="docutils literal notranslate"><span class="pre">caMenu</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cachoice"><code class="docutils literal notranslate"><span class="pre">caChoice</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#carelateddisplay"><code class="docutils literal notranslate"><span class="pre">caRelatedDisplay</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#catextentry"><code class="docutils literal notranslate"><span class="pre">caTextEntry</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#camessagebutton"><code class="docutils literal notranslate"><span class="pre">caMessageButton</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#catogglebutton"><code class="docutils literal notranslate"><span class="pre">caToggleButton</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#cascriptbutton"><code class="docutils literal notranslate"><span class="pre">caScriptButton</span></code></a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#caspinbox"><code class="docutils literal notranslate"><span class="pre">caSpinBox</span></code></a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#all-controller-objects">all controller objects</a><ul class="nav section-nav flex-column">
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#canumeric"><code class="docutils literal notranslate"><span class="pre">caNumeric</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#caapplynumeric"><code class="docutils literal notranslate"><span class="pre">caApplyNumeric</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#caslider"><code class="docutils literal notranslate"><span class="pre">caSlider</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cashellcommand"><code class="docutils literal notranslate"><span class="pre">caShellCommand</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#camenu"><code class="docutils literal notranslate"><span class="pre">caMenu</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cachoice"><code class="docutils literal notranslate"><span class="pre">caChoice</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#carelateddisplay"><code class="docutils literal notranslate"><span class="pre">caRelatedDisplay</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#catextentry"><code class="docutils literal notranslate"><span class="pre">caTextEntry</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#camessagebutton"><code class="docutils literal notranslate"><span class="pre">caMessageButton</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#catogglebutton"><code class="docutils literal notranslate"><span class="pre">caToggleButton</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#cascriptbutton"><code class="docutils literal notranslate"><span class="pre">caScriptButton</span></code></a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#caspinbox"><code class="docutils literal notranslate"><span class="pre">caSpinBox</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#requirements">Requirements</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#command-line-options">Command Line Options</a><ul class="nav section-nav flex-column">
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#examples">Examples</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#requirements">Requirements</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#command-line-options">Command Line Options</a><ul class="nav section-nav flex-column">
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#examples">Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#description-files">Description Files</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#connection-problems-and-access-rights">Connection Problems and Access Rights</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#fonts">Fonts</a></li>
-<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#general-properties">General Properties</a><ul class="nav section-nav flex-column">
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#macro-substitution">Macro Substitution</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#drag-and-drop">Drag-And-Drop</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#main-window">Main Window</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#context-menu">Context Menu</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#context-menu-customization">Context Menu Customization</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#help">Help</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#resizing-displays">Resizing Displays</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#printing">Printing</a></li>
-<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="documentation.html#environment-variables">Environment Variables</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#description-files">Description Files</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#connection-problems-and-access-rights">Connection Problems and Access Rights</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#fonts">Fonts</a></li>
+<li class="toctree-l2 toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#general-properties">General Properties</a><ul class="nav section-nav flex-column">
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#macro-substitution">Macro Substitution</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#drag-and-drop">Drag-And-Drop</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#main-window">Main Window</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#context-menu">Context Menu</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#context-menu-customization">Context Menu Customization</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#help">Help</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#resizing-displays">Resizing Displays</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#printing">Printing</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#environment-plugin">Environment Plugin</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#unit-replacements">Unit Replacements</a></li>
+<li class="toctree-l3 toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#document-caQtDM_Manual#environment-variables">Environment Variables</a></li>
 </ul>
 </li>
 </ul>
@@ -3686,8 +4007,8 @@ and (;).</p></td>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -3695,17 +4016,19 @@ and (;).</p></td>
     <div class="footer-items__start">
       
         <div class="footer-item">
+
   <p class="copyright">
     
-      © Copyright 2007, Anton Mezger, Helge Brands.
+      © Copyright 2012-2025, Anton Mezger, Helge Brands.
       <br/>
     
   </p>
 </div>
       
         <div class="footer-item">
+
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     <br/>
   </p>
 </div>
@@ -3713,10 +4036,13 @@ and (;).</p></td>
     </div>
   
   
+  
     <div class="footer-items__end">
       
-        <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>
